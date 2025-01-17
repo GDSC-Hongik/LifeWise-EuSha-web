@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Screen</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh; /* 화면 높이를 100%로 설정 */
+      overflow: hidden; /* 전체 화면에 스크롤이 생기지 않도록 설정 */
+    }
+
+    .left {
+      width: 50%; /* 왼쪽 영역의 너비 */
+      height: 100%;
+      overflow-y: scroll; /* 세로 스크롤 활성화 */
+      background-color: #f0f0f0;
+    }
+
+    .right {
+      width: 50%; /* 오른쪽 영역의 너비 */
+      height: 100%;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      height: 200%; /* 테스트용으로 길게 만들어 스크롤 확인 */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="content">
+      <h1>왼쪽 스크롤 영역</h1>
+      <p>여기에 긴 내용을 추가하면 스크롤이 가능합니다.</p>
+      <p>스크롤이 가능한 영역입니다.</p>
+      <p>더 많은 내용</p>
+      <p>더 많은 내용</p>
+      <p>더 많은 내용</p>
+      <p>더 많은 내용</p>
+      <p>더 많은 내용</p>
+    </div>
+  </div>
+  <div class="right">
+    <h1>오른쪽 고정 영역</h1>
+  </div>
+</body>
+</html>
