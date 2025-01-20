@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #f8f8f8;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+.hero {
+  background: url("../assets/slide.jpg") center/cover no-repeat;
+  height: 300px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.category {
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.category h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  border-bottom: none;
+  color: black;
+  font-size: 1.2em;
+  margin: 15px;
+  text-decoration: none;
+}
+
+.card p {
+  font-size: 0.9em;
+  margin: 0 15px 15px 15px;
+  color: #666;
+}
+
+footer {
+  font-size: 10px;
+  text-align: center;
+  padding: 2px;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+  margin-top: 90px;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 모든 링크에 대해 기본 스타일을 제거 */
+a:visited {
+  text-decoration: none; /* 보라색 줄을 없애기 위해 밑줄 제거 */
+  color: inherit; /* 링크의 색상을 부모 색상으로 설정 */
+}
+
+/* 링크에 대한 기본 스타일 (링크, 방문, 활성화, 호버 상태) */
+a:link,
+a:active,
+a:hover {
+  color: inherit; /* 링크의 색상을 부모 색상으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 카드 요소에 hover 효과 적용 */
+.card:hover {
+  transform: scale(1.05); /* 크기를 5% 키움 */
+  transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.card img {
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05); /* 이미지도 함께 확대 */
+}
