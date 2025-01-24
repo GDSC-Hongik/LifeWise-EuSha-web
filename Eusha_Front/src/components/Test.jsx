@@ -1,4 +1,4 @@
-// import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Test.css";
 import slide01 from "../assets/slide01.jpg";
@@ -6,6 +6,21 @@ import slide02 from "../assets/slide02.jpg";
 import slide03 from "../assets/slide03.jpg";
 
 const Test = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [slide01, slide02, slide03];
+
+  // 자동 슬라이드 전환 기능
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length); // 순환
+    }, 5000); // 3초마다 변경
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  const handleSlideChange = (index) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <div className="wrapper">
       <header>
@@ -19,9 +34,22 @@ const Test = () => {
       </header>
 
       <section className="hero">
-        <div>
+        <img src={slides[currentSlide]} alt={`슬라이드 ${currentSlide + 1}`} />
+        <div className="hero-text">
           <h1>똑 부러지는 자취생활을 즐기는 그날까지</h1>
           <p>LifeWise는 당신과 함께합니다.</p>
+        </div>
+
+        <div className="radio-buttons">
+          {slides.map((_, index) => (
+            <input
+              key={index}
+              type="radio"
+              name="slide"
+              checked={currentSlide === index}
+              onChange={() => handleSlideChange(index)}
+            />
+          ))}
         </div>
       </section>
 

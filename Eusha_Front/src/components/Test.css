@@ -10,7 +10,7 @@ body {
 
 header {
   background-color: #f8f8f8;
-  padding: 10px 20px;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,8 @@ header nav a {
   font-size: 1em;
 }
 
-.hero {
+/* 1차 */
+/* .hero {
   background: url("../assets/slide.jpg") center/cover no-repeat;
   height: 300px;
   color: white;
@@ -51,6 +52,103 @@ header nav a {
 .hero p {
   font-size: 1.2em;
   margin-top: 10px;
+} */
+
+/*2차 수정*/
+/* .hero {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-top: 10px;
+} */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px; /* 배너 높이 고정 */
+  background-color: #f4f4f4; /* 배경색 추가 */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero img {
+  width: auto; /* 너비를 고정하지 않음 */
+  height: 100%; /* 높이를 100%로 고정 */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* 이미지가 중앙에 위치하도록 설정 */
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 1;
+  color: black;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  /* text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); */
+}
+
+.radio-buttons {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.radio-buttons input[type="radio"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.radio-buttons input[type="radio"]:checked {
+  background-color: #fff;
 }
 
 .category {
