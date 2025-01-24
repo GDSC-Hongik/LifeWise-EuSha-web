@@ -1,5 +1,5 @@
 import "./App.css";
-import Test from "./components/Test";
+import Mainpage from "./components/Mainpage";
 // import Header from "./components/Header";
 // import Main from "./components/Main";
 // import Footer from "./components/Footer";
@@ -7,10 +7,7 @@ import Test from "./components/Test";
 function App() {
   return (
     <div>
-      {/* <Header></Header>
-      <Main></Main>
-      <Footer></Footer> */}
-      <Test></Test>
+      <Mainpage></Mainpage>
     </div>
   );
 }

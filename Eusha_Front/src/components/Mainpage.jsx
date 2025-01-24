@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Test.css";
+import "./Mainpage.css";
 import slide01 from "../assets/slide01.jpg";
 import slide02 from "../assets/slide02.jpg";
 import slide03 from "../assets/slide03.jpg";
 
-const Test = () => {
+const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [slide01, slide02, slide03];
 
@@ -85,4 +85,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Mainpage;
