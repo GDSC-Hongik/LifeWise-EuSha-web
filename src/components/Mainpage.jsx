@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// react-router-dom 말고 react-dom에서 가져와야 하는구나
+import { createPortal } from "react-dom";
 import "./Mainpage.css";
-import slide01 from "../assets/slide01.jpg";
-import slide02 from "../assets/slide02.jpg";
-import slide03 from "../assets/slide03.jpg";
+import slide01 from "../assets/recycle.jpg";
+import slide02 from "../assets/laundary.jpg";
+import slide03 from "../assets/recipe.jpg";
+import banner01 from "../assets/banner01.jpg";
+import banner02 from "../assets/banner02.jpg";
+import banner03 from "../assets/banner03.jpg";
+import Profile from "./Profile";
 
 const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [slide01, slide02, slide03];
+  const slides = [banner01, banner02, banner03];
+
+  // 프로필 사진 클릭 시 모달창이 나타나는 기능
+  // 처음에는 모달 창 = false
+  const [showModal, setShowModal] = useState(false);
 
   // 자동 슬라이드 전환 기능
   useEffect(() => {
@@ -24,12 +34,16 @@ const Mainpage = () => {
   return (
     <div className="wrapper">
       <header>
-        <div className="logo">LifeWise</div>
+        <div className="logo">
+          <Link to="/">LifeWise</Link>
+        </div>
         <nav>
-          <a href="#">마이페이지</a>
-          <a href="#">기록</a>
-          <a href="#">즐겨찾기</a>
-          <a href="#">설정</a>
+          <button onClick={() => setShowModal(true)}>⏺️</button>
+          {showModal &&
+            createPortal(
+              <Profile onClose={() => setShowModal(false)}></Profile>,
+              document.getElementById("modal-root")
+            )}
         </nav>
       </header>
 

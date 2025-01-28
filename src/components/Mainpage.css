@@ -27,10 +27,14 @@ header nav {
   gap: 15px;
 }
 
-header nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1em;
+header nav button {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  border: none;
+  /*transparent*/
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 /* 1차 */
@@ -98,7 +102,7 @@ header nav a {
   position: relative;
   width: 100%;
   height: 400px; /* 배너 높이 고정 */
-  background-color: #f4f4f4; /* 배경색 추가 */
+  background-color: white; /* 배경색 추가 */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -106,20 +110,20 @@ header nav a {
 }
 
 .hero img {
-  width: auto; /* 너비를 고정하지 않음 */
-  height: 100%; /* 높이를 100%로 고정 */
+  width: 800px; /* 너비를 고정하지 않음 */
+  height: 400px; /* 높이를 100%로 고정 */
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%); /* 이미지가 중앙에 위치하도록 설정 */
-  transition: opacity 1s ease-in-out;
+  transform: translate(-50%, -50%); /*이미지가 중앙에 위치하도록 설정*/
+  /* transition: opacity 1s ease-in-out; */
   z-index: 0;
 }
 
 .hero-text {
   position: absolute;
   z-index: 1;
-  color: black;
+  color: white;
   text-align: center;
   width: 100%;
   top: 50%;
@@ -163,6 +167,7 @@ header nav a {
 }
 
 .cards {
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   gap: 15px;

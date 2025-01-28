@@ -1,0 +1,93 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: top;
+  margin-top: 50px;
+  z-index: 1000;
+}
+
+.modal-content {
+  margin-top: 10px;
+  margin-right: 5px;
+  width: 300px;
+  height: 370px;
+  background: white;
+  padding: 5px 20px;
+  border-radius: 8px;
+  text-align: center;
+  justify-content: flex-start;
+  border: 1px solid #000000;
+}
+
+.modal-content h2 {
+  padding: 0px 10px;
+  text-align: left;
+}
+
+.modal-content .modal-list {
+  border-radius: 10px;
+  background-color: rgb(245, 243, 243);
+  text-align: left;
+  padding: 20px 20px 20px;
+}
+
+.modal-list .mypage:hover {
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.modal-list .bookmark:hover {
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.modal-list .setting:hover {
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.modal-content .modal-list p {
+  padding-bottom: 5px;
+}
+
+.footer {
+  padding: 5px 16px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .logout:hover {
+  border-bottom: solid 1px;
+  cursor: pointer;
+}
+
+.footer .question:hover {
+  border-bottom: solid 1px;
+  cursor: pointer;
+}
+
+.footer .logout:hover {
+  border-bottom: solid 1px;
+  cursor: pointer;
+}
+
+.close-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
