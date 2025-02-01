@@ -14,6 +14,7 @@ import Laundary from "./components/Laundary";
 import Recipe from "./components/Recipe";
 import Mypage from "./components/Mypage";
 import Bookmark from "./components/Bookmark";
+import Login from "./components/Login";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -31,6 +32,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/mypage" element={<Mypage />} />
         {/* 북마크 화면 */}
         <Route path="/bookmark" element={<Bookmark />} />
+        {/* 로그인 화면 */}
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   </React.StrictMode>

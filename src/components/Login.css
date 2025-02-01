@@ -1,0 +1,46 @@
+.login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.inputEmail {
+  margin-bottom: 20px;
+}
+
+.inputPW {
+  margin-bottom: 20px;
+}
+
+.Email {
+  border-radius: 10px;
+  padding: 10px 10px 10px;
+}
+
+.PW {
+  border-radius: 10px;
+  padding: 10px 10px 10px;
+}
+
+.buttonWrap {
+  margin-top: 100px;
+}
+
+.buttonWrap button {
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.buttonWrap button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
