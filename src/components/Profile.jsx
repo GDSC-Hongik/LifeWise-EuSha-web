@@ -1,12 +1,33 @@
 import PropTypes from "prop-types";
 import "./Profile.css";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Link import 추가
 
 const Profile = ({ onClose }) => {
+  const [membername, setMembername] = useState("");
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setMembername(storedUsername);
+    } else {
+      setMembername(null);
+    }
+  }, []);
+
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2>👤 김강민</h2>
+        <h2 className="username">
+          👤{" "}
+          {membername ? (
+            membername // { username }을 잘못 사용하지 않고 직접 출력
+          ) : (
+            <Link to="/Login">
+              <button>로그인</button>
+            </Link>
+          )}
+        </h2>
         <div className="modal-list">
           <p className="mypage">
             <Link to="./mypage">📄마이페이지</Link>
