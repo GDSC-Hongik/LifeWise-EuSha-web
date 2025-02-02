@@ -1,12 +1,16 @@
 .login {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: rgb(220, 220, 220);
   width: 50%;
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 50px;
   font-weight: bold;
   margin-top: 50px;
@@ -32,13 +36,18 @@
 }
 
 .buttonWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 50px;
 }
 
 .buttonWrap button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   border-radius: 5px;
-  padding: 10px;
 }
 
 .buttonWrap button:hover {

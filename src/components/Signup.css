@@ -11,13 +11,14 @@
   justify-content: center;
   background-color: aliceblue;
   padding: 10px;
+  margin-top: -150px;
 }
 
 .title {
   font-size: 40px;
   font-weight: bold;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .form {
@@ -32,7 +33,7 @@
   position: relative;
   padding: 15px 10px 12px 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 7px;
   font-size: 14px;
   outline: none;
 }
