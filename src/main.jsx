@@ -15,6 +15,7 @@ import Recipe from "./components/Recipe";
 import Mypage from "./components/Mypage";
 import Bookmark from "./components/Bookmark";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -34,6 +35,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/bookmark" element={<Bookmark />} />
         {/* 로그인 화면 */}
         <Route path="/login" element={<Login />} />
+        {/* 회원가입 화면 */}
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   </React.StrictMode>
