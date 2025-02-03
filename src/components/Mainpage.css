@@ -27,6 +27,12 @@ header nav {
   gap: 15px;
 }
 
+header .login {
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 60px;
+}
+
 header nav button {
   font-size: 16px;
   font-weight: bold;
