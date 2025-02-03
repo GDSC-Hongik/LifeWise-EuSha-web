@@ -22,7 +22,7 @@ const Login = () => {
       console.log(result.data.accessToken);
       console.log(result.data.refreshToken);
       console.log(result.data.memberId);
-      console.log(result.data.membername);
+      console.log(result.data.memberName);
 
       if (result.data.accessToken && result.data.refreshToken) {
         localStorage.setItem("accessToken", result.data.accessToken);
