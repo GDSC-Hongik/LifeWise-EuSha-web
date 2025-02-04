@@ -9,26 +9,26 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const login = async (e) => {
+  const handlelogin = async (e) => {
     e.preventDefault(); // 폼 제출 시 페이지 reload 방지
 
     try {
-      const result = await API.post(
-        "members/login", // AWS 서버 주소로 변경
+      const response = await API.post(
+        "http://AWS/members/login", // AWS 서버 주소로 변경
         { email, password }
       );
 
       // 정상 작동 확인용
-      console.log(result.data.accessToken);
-      console.log(result.data.refreshToken);
-      console.log(result.data.memberId);
-      console.log(result.data.memberName);
+      console.log(response.data.accessToken);
+      console.log(response.data.refreshToken);
+      console.log(response.data.memberId);
+      console.log(response.data.memberName);
 
-      if (result.data.accessToken && result.data.refreshToken) {
-        localStorage.setItem("accessToken", result.data.accessToken);
-        localStorage.setItem("refreshToken", result.data.refreshToken);
-        localStorage.setItem("memberID", result.data.memberId);
-        localStorage.setItem("memberName", result.data.memberName);
+      if (response.data.accessToken && response.data.refreshToken) {
+        localStorage.setItem("accessToken", response.data.accessToken);
+        localStorage.setItem("refreshToken", response.data.refreshToken);
+        localStorage.setItem("memberID", response.data.memberId);
+        localStorage.setItem("memberName", response.data.memberName);
         navigate("/");
       }
     } catch (error) {
@@ -48,7 +48,7 @@ const Login = () => {
     <div className="container">
       <div className="login">
         <div className="title">LifeWise</div>
-        <form onSubmit={login}>
+        <form onSubmit={handlelogin}>
           {" "}
           {/* form 태그 추가로 제출 처리 */}
           <div className="inputEmail">
