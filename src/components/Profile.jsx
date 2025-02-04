@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import "./Profile.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Link import 추가
+import { Link, useNavigate } from "react-router-dom"; // Link import 추가
+import API from "../api/axiosInstance";
 
 const Profile = ({ onClose }) => {
+  const navigate = useNavigate();
   const [membername, setMembername] = useState("");
 
   useEffect(() => {
@@ -15,6 +17,30 @@ const Profile = ({ onClose }) => {
     }
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      const refreshToken = localStorage.getItem("refreshToken");
+
+      if (!refreshToken) {
+        onClose();
+        navigate("/");
+        return;
+      }
+
+      await API.post("http://AWS/members/logout", {
+        refreshToken,
+      });
+
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+
+      console.log("logout 성공"); // 검증
+      navigate("/"); // 로그아웃하면 홈으로 이동하냐??
+    } catch (error) {
+      console.error("logout 실패", error);
+      alert("logout 실패"); // 검증
+    }
+  };
   return (
     <div className="modal">
       <div className="modal-content">
@@ -38,7 +64,9 @@ const Profile = ({ onClose }) => {
           <p className="setting">⚙️설정</p>
         </div>
         <div className="footer">
-          <p className="logout">로그아웃</p>
+          <p className="logout" onClick={handleLogout}>
+            로그아웃
+          </p>
           <p className="question">고객센터</p>
         </div>
         <button onClick={onClose} className="close-button">
