@@ -27,6 +27,12 @@ header nav {
   gap: 15px;
 }
 
+header .login {
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 60px;
+}
+
 header nav button {
   font-size: 16px;
   font-weight: bold;
@@ -116,7 +122,7 @@ header nav button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /*이미지가 중앙에 위치하도록 설정*/
-  /* transition: opacity 1s ease-in-out; */
+  transition: opacity 2s ease-in-out;
   z-index: 0;
 }
 
