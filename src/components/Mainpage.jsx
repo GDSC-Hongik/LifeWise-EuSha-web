@@ -14,6 +14,8 @@ import Profile from "./Profile";
 const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [banner01, banner02, banner03];
+  // const [isLogin, setIsLogin] = useState(false);
+  // const [user, setUser] = useState({}); // 사용자 정보 state
 
   // 프로필 사진 클릭 시 모달창이 나타나는 기능
   // 처음에는 모달 창 = false
@@ -38,6 +40,9 @@ const Mainpage = () => {
           <Link to="/">LifeWise</Link>
         </div>
         <nav>
+          <button className="login">
+            <Link to="/Login">로그인</Link>
+          </button>
           <button onClick={() => setShowModal(true)}>⏺️</button>
           {showModal &&
             createPortal(
