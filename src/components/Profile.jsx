@@ -6,19 +6,20 @@ import API from "../api/axiosInstance";
 
 const Profile = ({ onClose }) => {
   const navigate = useNavigate();
-  const [membername, setMembername] = useState("");
+  const [memberName, setmemberName] = useState("");
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setMembername(storedUsername);
+    const storedmemberName = localStorage.getItem("memberName");
+    if (storedmemberName) {
+      setmemberName(storedmemberName);
     } else {
-      setMembername(null);
+      setmemberName(null);
     }
   }, []);
 
   const handleLogout = async () => {
     try {
+      const accessToken = localStorage.getItem("accessToken");
       const refreshToken = localStorage.getItem("refreshToken");
 
       if (!refreshToken) {
@@ -27,14 +28,19 @@ const Profile = ({ onClose }) => {
         return;
       }
 
-      await API.post("http://AWS/members/logout", {
-        refreshToken,
+      await API.delete("http://localhost:8080/members/logout", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        data: { refreshToken },
       });
 
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
 
       console.log("logout 성공"); // 검증
+      onClose();
       navigate("/"); // 로그아웃하면 홈으로 이동하냐??
     } catch (error) {
       console.error("logout 실패", error);
@@ -46,8 +52,8 @@ const Profile = ({ onClose }) => {
       <div className="modal-content">
         <h2 className="username">
           👤{" "}
-          {membername ? (
-            membername // { username }을 잘못 사용하지 않고 직접 출력
+          {memberName ? (
+            memberName // { username }을 잘못 사용하지 않고 직접 출력
           ) : (
             <Link to="/Login">
               <button>로그인</button>
@@ -64,9 +70,11 @@ const Profile = ({ onClose }) => {
           <p className="setting">⚙️설정</p>
         </div>
         <div className="footer">
-          <p className="logout" onClick={handleLogout}>
-            로그아웃
-          </p>
+          {memberName && (
+            <p className="logout" onClick={handleLogout}>
+              로그아웃
+            </p>
+          )}
           <p className="question">고객센터</p>
         </div>
         <button onClick={onClose} className="close-button">

@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
-  const [name, setName] = useState("");
+  const [memberName, setmemberName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
   const handleName = (e) => {
-    setName(e.target.value);
+    setmemberName(e.target.value);
   };
 
   const handleEmail = (e) => {
@@ -28,11 +28,14 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://AWS/members/signup", {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:8080/members/signup",
+        {
+          memberName,
+          email,
+          password,
+        }
+      );
       console.log("회원가입 성공", response.data); // 검증
       navigate("/Login"); // 회원가입 성공시 로그인 페이지 이동
     } catch (error) {
@@ -51,7 +54,7 @@ const Signup = () => {
             type="text"
             name="name"
             placeholder="이름을 입력해주세요"
-            value={name}
+            value={memberName}
             onChange={handleName}
           ></input>
           <input

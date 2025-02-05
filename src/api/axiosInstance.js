@@ -5,7 +5,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://AWS", // 기저 AWS주소 변경
+  baseURL: "http://localhost:8080", // 기저 AWS주소 변경
 
   // 서버에서 refreshToken을 다룬다면 쿠키를 다룸.
   // 이번에는 프론트에서 refreshToken을 직접 body에 담아 요청을 보내기 때문에
@@ -48,7 +48,7 @@ API.interceptors.response.use(
 
         // refreshToken을 사용해 새로운 accessToken 요청부분
         const refreshResponse = await axios.post(
-          "http://AWS/members/refreshToken",
+          "http://localhost:8080/members/refreshToken",
           { refreshToken }, // body 부분
           { headers: { "Content-Type": "application/json" } }
         );

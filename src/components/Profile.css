@@ -64,6 +64,14 @@
   justify-content: space-between;
 }
 
+.footer .logout {
+  display: block;
+}
+
+.footer .question {
+  display: block;
+}
+
 .footer .logout:hover {
   border-bottom: solid 1px;
   cursor: pointer;
