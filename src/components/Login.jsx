@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await API.post(
-        "http://AWS/members/login", // AWS 서버 주소로 변경
+        "http://localhost:8080/members/login", // AWS 서버 주소로 변경
         { email, password }
       );
 
@@ -27,11 +27,12 @@ const Login = () => {
       if (response.data.accessToken && response.data.refreshToken) {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
-        localStorage.setItem("memberID", response.data.memberId);
+        localStorage.setItem("memberId", response.data.memberId);
         localStorage.setItem("memberName", response.data.memberName);
         navigate("/");
       }
     } catch (error) {
+      alert("로그인 실패");
       console.error("로그인 실패", error);
     }
   };
