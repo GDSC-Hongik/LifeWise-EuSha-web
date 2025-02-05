@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // react-router-dom 말고 react-dom에서 가져와야 하는구나
 import { createPortal } from "react-dom";
-import "./Mainpage.css";
 import slide01 from "../assets/recycle.jpg";
 import slide02 from "../assets/laundary.jpg";
 import slide03 from "../assets/recipe.jpg";
@@ -10,6 +9,7 @@ import banner01 from "../assets/banner01.jpg";
 import banner02 from "../assets/banner02.jpg";
 import banner03 from "../assets/banner03.jpg";
 import Profile from "./Profile";
+import "./Mainpage.css";
 
 const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,6 +20,21 @@ const Mainpage = () => {
   // 프로필 사진 클릭 시 모달창이 나타나는 기능
   // 처음에는 모달 창 = false
   const [showModal, setShowModal] = useState(false);
+
+  // ******************************************
+  // 여기 코드는 AWS배포 후 검증 예정
+  // // 로그인이 되어있지 않다면 로그인 버튼이 나오고
+  // // 로그인이 되어있다면 Profile 모달창 버튼이 나오게끔
+  // const [isLogin, setIsLogin] = useState(false);
+
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("accessToken");
+
+  //   // accessToken이 있다면 True값, 없다면 False값으로 토글
+  //   setIsLogin(accessToken ? true : false);
+  //   //console.log(accessToken); // 추후 삭제
+  //   // alert(accessToken); // 추후 삭제
+  // }, []);
 
   // 자동 슬라이드 전환 기능
   useEffect(() => {
@@ -39,11 +54,24 @@ const Mainpage = () => {
         <div className="logo">
           <Link to="/">LifeWise</Link>
         </div>
+
+        {/* 로그인 여부에 따라 변하나? */}
         <nav>
+          {/* {isLogin ? (
+            <button onClick={() => setShowModal(true)}>⏺️</button>
+          ) : (
+            <button className="login">
+              <Link to="/Login">로그인</Link>
+            </button>
+          )} */}
+
+          {/* ************************************* */}
+          {/* 임시 코드 */}
           <button className="login">
             <Link to="/Login">로그인</Link>
           </button>
           <button onClick={() => setShowModal(true)}>⏺️</button>
+
           {showModal &&
             createPortal(
               <Profile onClose={() => setShowModal(false)}></Profile>,
