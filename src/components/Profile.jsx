@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Profile.css";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Link import 추가
+import { Link, useNavigate } from "react-router-dom"; // Link import
 import API from "../api/axiosInstance";
 
 const Profile = ({ onClose }) => {
@@ -38,10 +38,10 @@ const Profile = ({ onClose }) => {
 
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
+      localStorage.removeItem("memberName");
 
       console.log("logout 성공"); // 검증
-      onClose();
-      navigate("/"); // 로그아웃하면 홈으로 이동하냐??
+      navigate("/"); // 로그아웃하면
     } catch (error) {
       console.error("logout 실패", error);
       alert("logout 실패"); // 검증
