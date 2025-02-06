@@ -8,6 +8,12 @@ body {
   min-height: 100vh;
 }
 
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   background-color: #f8f8f8;
   padding: 5px 20px;
@@ -28,9 +34,16 @@ header nav {
 }
 
 header .login {
-  font-size: 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
   background-color: rgba(0, 0, 0, 0);
-  width: 60px;
+  width: 70px;
+}
+
+header .login:hover {
+  color: blueviolet;
+  border: 2px solid blueviolet;
 }
 
 header nav button {
@@ -43,71 +56,10 @@ header nav button {
   cursor: pointer;
 }
 
-/* 1차 */
-/* .hero {
-  background: url("../assets/slide.jpg") center/cover no-repeat;
-  height: 300px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5em;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 1.2em;
-  margin-top: 10px;
-} */
-
-/*2차 수정*/
-/* .hero {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 0;
-}
-
-.hero-text {
-  position: absolute;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.hero h1 {
-  font-size: 2.5em;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 1.2em;
-  margin-top: 10px;
-} */
-
 .hero {
   position: relative;
   width: 100%;
-  height: 400px; /* 배너 높이 고정 */
+  height: 700px; /* 배너 높이 고정 */
   background-color: white; /* 배경색 추가 */
   overflow: hidden;
   display: flex;
@@ -116,18 +68,20 @@ header nav button {
 }
 
 .hero img {
-  width: 800px; /* 너비를 고정하지 않음 */
-  height: 400px; /* 높이를 100%로 고정 */
+  width: auto; /* 너비를 고정하지 않음 */
+  height: auto; /* 높이를 100%로 고정 */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /*이미지가 중앙에 위치하도록 설정*/
   transition: opacity 2s ease-in-out;
   z-index: 0;
+  background-size: cover;
 }
 
 .hero-text {
   position: absolute;
+  font-size: large;
   z-index: 1;
   color: white;
   text-align: center;
@@ -211,18 +165,12 @@ header nav button {
 }
 
 footer {
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   padding: 2px;
   background: #f8f8f8;
   border-top: 1px solid #ddd;
   margin-top: 90px;
-}
-
-.wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 /* 모든 링크에 대해 기본 스타일을 제거 */

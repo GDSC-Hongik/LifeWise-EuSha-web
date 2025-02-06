@@ -4,51 +4,68 @@
 }
 
 .left {
-  width: 50%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background-color: aliceblue;
-  padding: 10px;
-  margin-top: -150px;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
 }
 
 .title {
   font-size: 40px;
+  font-style: normal;
   font-weight: bold;
-  color: black;
-  margin-bottom: 40px;
+  color: #5a4328;
+  margin-bottom: 30px;
 }
 
-.form {
-  width: 80%;
+form {
+  width: 100%;
   max-width: 350px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
-.form input {
-  position: relative;
-  padding: 15px 10px 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  font-size: 14px;
+label {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  background: #f7f8fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.inputBox span {
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.inputBox input {
+  width: 100%;
+  border: none;
+  background: none;
+  font-size: 15px;
   outline: none;
 }
 
 .button {
-  background-color: #5c4033;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: #5a4328;
+  color: white;
   font-weight: bold;
-  transition: background-color 0.5s;
-  margin-top: 10px;
+  margin-top: 30px;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -56,10 +73,18 @@
 }
 
 .right {
-  width: 50%;
-  background: linear-gradient(to bottom, #c4a484, #ede0d4);
+  flex: 1;
+  background: url("/src/assets/loginImage.jpg");
+  background-size: cover;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.right h2 {
+  margin-left: 20px;
 }
