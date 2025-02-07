@@ -39,7 +39,9 @@ const Mainpage = () => {
   // 자동 슬라이드 전환 기능
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length); // 순환
+      setCurrentSlide(
+        (prevSlide) => (prevSlide + 1) % slides.length
+      ); // 순환
     }, 5000); // 3초마다 변경
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -70,18 +72,25 @@ const Mainpage = () => {
           <button className="login">
             <Link to="/Login">로그인</Link>
           </button>
-          <button onClick={() => setShowModal(true)}>⏺️</button>
+          <button onClick={() => setShowModal(true)}>
+            ⏺️
+          </button>
 
           {showModal &&
             createPortal(
-              <Profile onClose={() => setShowModal(false)}></Profile>,
+              <Profile
+                onClose={() => setShowModal(false)}
+              ></Profile>,
               document.getElementById("modal-root")
             )}
         </nav>
       </header>
 
       <section className="hero">
-        <img src={slides[currentSlide]} alt={`슬라이드 ${currentSlide + 1}`} />
+        <img
+          src={slides[currentSlide]}
+          alt={`슬라이드 ${currentSlide + 1}`}
+        />
         <div className="hero-text">
           <h1>똑 부러지는 자취생활을 즐기는 그날까지</h1>
           <p>LifeWise는 당신과 함께합니다.</p>
@@ -105,9 +114,15 @@ const Mainpage = () => {
         <div className="cards">
           <div className="card">
             <Link to="/Recycle">
-              <img src={slide01} alt="분리수거 가이드"></img>
+              <img
+                src={slide01}
+                alt="분리수거 가이드"
+              ></img>
               <h3>분리수거 가이드</h3>
-              <p>분리수거 가이드를 제공하는 내용을 간편히 확인해보세요.</p>
+              <p>
+                분리수거 가이드를 제공하는 내용을 간편히
+                확인해보세요.
+              </p>
             </Link>
           </div>
           <div className="card">
@@ -127,7 +142,9 @@ const Mainpage = () => {
         </div>
       </section>
 
-      <footer>&copy; 2025 LifeWise. All rights reserved.</footer>
+      <footer>
+        &copy; 2025 LifeWise. All rights reserved.
+      </footer>
     </div>
   );
 };
