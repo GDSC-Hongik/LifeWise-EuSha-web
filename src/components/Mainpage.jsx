@@ -5,9 +5,9 @@ import { createPortal } from "react-dom";
 import slide01 from "../assets/recycle.jpg";
 import slide02 from "../assets/laundary.jpg";
 import slide03 from "../assets/recipe.jpg";
-import banner01 from "../assets/banner01.jpg";
-import banner02 from "../assets/banner02.jpg";
-import banner03 from "../assets/banner03.jpg";
+import banner01 from "../assets/banner01_1.png";
+import banner02 from "../assets/banner02_1.png";
+import banner03 from "../assets/banner03_1.png";
 import Profile from "./Profile";
 import "./Mainpage.css";
 

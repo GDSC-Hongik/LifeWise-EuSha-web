@@ -1,6 +1,11 @@
+@font-face {
+  font-family: NotoSansKR;
+  src: url(../font/NotoSansKR-Regular.ttf);
+}
+
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "NotoSanaKR";
   line-height: 1.6;
   color: #333;
   display: flex;
@@ -81,7 +86,7 @@ header nav button {
 
 .hero-text {
   position: absolute;
-  font-size: large;
+  font-weight: bold;
   z-index: 1;
   color: white;
   text-align: center;
@@ -89,6 +94,14 @@ header nav button {
   top: 50%;
   transform: translateY(-50%);
   /* text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); */
+}
+
+.hero-text h1 {
+  font-size: 40px;
+}
+
+.hero-text p {
+  font-size: 30px;
 }
 
 .radio-buttons {
