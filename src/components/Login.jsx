@@ -47,12 +47,12 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div className="login">
+      <div className="left">
         <div className="title">LifeWise</div>
-        <form onSubmit={handlelogin}>
-          {" "}
-          {/* form 태그 추가로 제출 처리 */}
-          <div className="inputEmail">
+        <form className="form" onSubmit={handlelogin}>
+          <label>이메일</label>
+          <div className="inputBox">
+            <span>✉️</span>
             <input
               className="Email"
               type="text"
@@ -61,7 +61,10 @@ const Login = () => {
               onChange={sethandleEmail}
             ></input>
           </div>
-          <div className="inputPW">
+
+          <label>비밀번호</label>
+          <div className="inputBox">
+            <span>🔒</span>
             <input
               className="PW"
               type="password"
@@ -70,18 +73,19 @@ const Login = () => {
               onChange={sethandlePW}
             ></input>
           </div>
-          <div className="buttonWrap">
-            <button type="submit">로그인</button> {/* submit type으로 변경 */}
-          </div>
+          <button type="submit" className="button">
+            로그인
+          </button>
+          {/* submit type으로 변경 */}
         </form>
         <div className="firstLogin">
-          <h6>
+          <h5>
             <Link to="/Signup">로그인이 처음이신가요? 회원가입하러가기</Link>
-          </h6>
+          </h5>
         </div>
       </div>
-      <div className="image">
-        <h1>image</h1>
+      <div className="right">
+        <h2>LifeWise</h2>
       </div>
     </div>
   );

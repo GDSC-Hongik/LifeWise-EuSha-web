@@ -1,57 +1,21 @@
-.login {
+.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: rgb(220, 220, 220);
-  width: 50%;
+  height: 100vh;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  font-weight: bold;
-  margin-top: 50px;
-  margin-bottom: 50px;
+.inputBox {
+  padding: 0px;
 }
 
-.inputEmail {
-  margin-bottom: 20px;
+.inputBox:focus-within {
+  border: 1px solid black;
 }
 
-.inputPW {
-  margin-bottom: 20px;
+.firstLogin h5:hover {
+  color: blue;
+  border-bottom: 1px solid blue;
 }
 
-.Email {
-  border-radius: 10px;
-  padding: 10px 10px 10px;
-}
-
-.PW {
-  border-radius: 10px;
-  padding: 10px 10px 10px;
-}
-
-.buttonWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.buttonWrap button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  border-radius: 5px;
-}
-
-.buttonWrap button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: black;
+.firstLogin {
+  margin-top: 10px;
 }

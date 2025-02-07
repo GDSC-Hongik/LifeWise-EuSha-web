@@ -48,37 +48,55 @@ const Signup = () => {
     <div className="container">
       {/* 왼쪽 영역 */}
       <div className="left">
-        <h2 className="title">LifeWise</h2>
+        <h1 className="title">LifeWise</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="이름을 입력해주세요"
-            value={memberName}
-            onChange={handleName}
-          ></input>
-          <input
-            type="email"
-            name="email"
-            placeholder="이메일을 입력해주세요"
-            value={email}
-            onChange={handleEmail}
-          ></input>
-          <input
-            type="password"
-            name="password"
-            placeholder="비밀번호를 입력해주세요"
-            value={password}
-            onChange={handlePassword}
-          ></input>
-          <button className="button">회원가입</button>
+          <label>이름</label>
+          <div className="inputBox">
+            <span>👤</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="이름을 입력해주세요"
+              value={memberName}
+              onChange={handleName}
+            ></input>
+          </div>
+
+          <label>이메일</label>
+          <div className="inputBox">
+            <span>✉️</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="이메일을 입력해주세요"
+              value={email}
+              onChange={handleEmail}
+            ></input>
+          </div>
+
+          <label>비밀번호</label>
+          <div className="inputBox">
+            <span>🔒</span>
+            <input
+              type="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              value={password}
+              onChange={handlePassword}
+            ></input>
+          </div>
+          <button type="submit" className="button">
+            회원가입
+          </button>
         </form>
       </div>
       <div className="right">
-        <h2>image</h2>
+        <h2>LifeWise</h2>
       </div>
     </div>
   );
 };
 
 export default Signup;
+
+// 영문자 숫자 특수문자 포함 8~ 25사이
