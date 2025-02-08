@@ -45,7 +45,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="container">
+    <div className="signuppage">
       {/* 왼쪽 영역 */}
       <div className="left">
         <h1 className="title">LifeWise</h1>
