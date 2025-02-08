@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="loginpage">
       <div className="left">
         <div className="title">LifeWise</div>
         <form className="form" onSubmit={handlelogin}>
