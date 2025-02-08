@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* 레시피 화면 */}
         <Route path="/recipe" element={<Recipe />} />
         {/* 마이페이지 화면 */}
-        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypage/" element={<Mypage />} />
         {/* 북마크 화면 */}
         <Route path="/bookmark" element={<Bookmark />} />
         {/* 로그인 화면 */}
