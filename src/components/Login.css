@@ -1,6 +1,7 @@
-.container {
+.loginpage {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
 
 .inputBox {

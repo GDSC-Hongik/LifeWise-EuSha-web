@@ -1,6 +1,9 @@
+import Header from "./Header";
+
 const Recipe = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
+      <Header></Header>
       <h1>레시피 가이드</h1>
       <p>분리수거 방법과 관련된 유용한 정보를 확인하세요:</p>
       <ul>
