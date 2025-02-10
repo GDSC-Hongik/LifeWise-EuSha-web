@@ -1,25 +1,21 @@
+// Mypage.jsx
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // react-router-dom 말고 react-dom에서 가져와야 하는구나
-import { createPortal } from "react-dom";
 import slide01 from "../assets/recycle.jpg";
 import slide02 from "../assets/laundary.jpg";
 import slide03 from "../assets/recipe.jpg";
 import banner01 from "../assets/banner01_1.png";
 import banner02 from "../assets/banner02_1.png";
 import banner03 from "../assets/banner03_1.png";
-import Profile from "./Profile";
 import "./Mainpage.css";
+import Header from "./Header";
 
 const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [banner01, banner02, banner03];
   // const [isLogin, setIsLogin] = useState(false);
   // const [user, setUser] = useState({}); // 사용자 정보 state
-
-  // 프로필 사진 클릭 시 모달창이 나타나는 기능
-  // 처음에는 모달 창 = false
-  const [showModal, setShowModal] = useState(false);
 
   // 로그인이 되어있지 않다면 로그인 버튼이 나오고
   // 로그인이 되어있다면 Profile 모달창 버튼이 나오게끔
@@ -50,45 +46,7 @@ const Mainpage = () => {
 
   return (
     <div className="wrapper">
-      <header>
-        <div className="logo">
-          <Link to="/">LifeWise</Link>
-        </div>
-
-        {/* 로그인 여부에 따라 변하나? */}
-        <nav>
-          {/* {isLogin ? (
-            <button onClick={() => setShowModal(true)}>⏺️</button>
-          ) : (
-            <button className="login">
-              <Link to="/Login">로그인</Link>
-            </button>
-          )} */}
-
-          {/* ********************/}
-          <button className="login">
-            <Link to="/Login">로그인</Link>
-          </button>
-
-          <button
-            className="login"
-            onClick={() => setShowModal(true)}
-            style={{ fontSize: 20 }}
-          >
-            🧝
-          </button>
-          {/* ********************/}
-
-          {showModal &&
-            createPortal(
-              <Profile
-                onClose={() => setShowModal(false)}
-              ></Profile>,
-              document.getElementById("modal-root")
-            )}
-        </nav>
-      </header>
-
+      <Header />
       <section className="hero">
         <img
           src={slides[currentSlide]}
