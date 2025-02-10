@@ -37,11 +37,11 @@ const Login = () => {
     }
   };
 
-  const sethandleEmail = (e) => {
+  const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const sethandlePW = (e) => {
+  const handlePW = (e) => {
     setPassword(e.target.value);
   };
 
@@ -58,7 +58,7 @@ const Login = () => {
               type="text"
               placeholder="이메일을 입력해주세요"
               value={email}
-              onChange={sethandleEmail}
+              onChange={handleEmail}
             ></input>
           </div>
 
@@ -70,13 +70,12 @@ const Login = () => {
               type="password"
               placeholder="비밀번호를 입력해주세요"
               value={password}
-              onChange={sethandlePW}
+              onChange={handlePW}
             ></input>
           </div>
           <button type="submit" className="button">
             로그인
           </button>
-          {/* submit type으로 변경 */}
         </form>
         <div className="firstLogin">
           <h5>

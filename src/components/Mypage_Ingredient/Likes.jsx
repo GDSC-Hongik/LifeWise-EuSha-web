@@ -2,8 +2,8 @@ import "./Likes.css";
 
 const Likes = () => {
   return (
-    <div>
-      <h1>Likes</h1>
+    <div className="likes-container">
+      <h1>내 좋아요 목록</h1>
     </div>
   );
 };

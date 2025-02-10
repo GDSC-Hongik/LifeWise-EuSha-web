@@ -3,6 +3,13 @@
   background-color: #f8f9fa;
 }
 
+.mypage-logo {
+  padding: 5px 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
 .mypage-body {
   display: flex;
   flex-direction: row;
@@ -35,6 +42,10 @@
   font-weight: bold;
 }
 
+.sidebar li.selected {
+  background-color: #e8f4ff;
+  font-weight: bold;
+}
 /* 메인 컨텐츠 스타일 */
 .mypage-content {
   flex: 1;

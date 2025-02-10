@@ -13,8 +13,8 @@
 }
 
 .firstLogin h5:hover {
-  color: blue;
-  border-bottom: 1px solid blue;
+  color: #5a4328;
+  border-bottom: 1px none #8b5e3c;
 }
 
 .firstLogin {
