@@ -10,11 +10,22 @@ const ButtonContainer = styled.div`
   gap: 0px 50px;
 `;
 
-const ButtonBar = () => {
+const ButtonBar = ({ activeButton, setActiveButton }) => {
+  const handleButtonClick = (id) => {
+    setActiveButton((prev) => (prev === id ? null : id));
+  };
   return (
     <ButtonContainer>
       {ButtonData.map(({ id, imageOff, imageOn, text }) => (
-        <Button key={id} imageOff={imageOff} imageOn={imageOn} text={text} />
+        <Button
+          key={id}
+          id={id}
+          imageOff={imageOff}
+          imageOn={imageOn}
+          text={text}
+          isActive={activeButton === id}
+          onClick={() => handleButtonClick(id)}
+        />
       ))}
     </ButtonContainer>
   );

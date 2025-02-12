@@ -1,5 +1,3 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
@@ -25,21 +23,13 @@ const Text = styled.span`
   font-weight: bold;
 `;
 
-const Button = ({ imageOff, imageOn, text }) => {
-  const [isOn, setIsOn] = useState(false);
-
+const Button = ({ imageOff, imageOn, text, isActive, onClick }) => {
   return (
-    <ButtonStyled onClick={() => setIsOn((prev) => !prev)}>
-      <Image src={isOn ? imageOn : imageOff} alt={text} />
+    <ButtonStyled onClick={onClick}>
+      <Image src={isActive ? imageOn : imageOff} alt={text} />
       <Text>{text}</Text>
     </ButtonStyled>
   );
-};
-
-Button.propTypes = {
-  imageOff: PropTypes.string.isRequired,
-  imageOn: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
 };
 
 export default Button;

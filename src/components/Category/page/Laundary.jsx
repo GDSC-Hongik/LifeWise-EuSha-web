@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ButtonBar from "../block/ButtonBar";
 import Header from "../block/Header";
 import Body from "../block/Body";
+import { useState } from "react";
 
 const LaundryContainer = styled.div`
   position: relative;
@@ -13,6 +14,7 @@ const LaundryContainer = styled.div`
 `;
 
 const Laundry = () => {
+  const [activeButton, setActiveButton] = useState(1);
   return (
     <LaundryContainer>
       {/* <style>
@@ -23,8 +25,11 @@ const Laundry = () => {
         `}
       </style> */}
       <Header />
-      <ButtonBar />
-      <Body />
+      <ButtonBar
+        activeButton={activeButton}
+        setActiveButton={setActiveButton}
+      />
+      <Body activeButton={activeButton} />
     </LaundryContainer>
   );
 };

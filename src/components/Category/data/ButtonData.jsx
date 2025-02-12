@@ -12,12 +12,42 @@ import dryCleanOff from "../../../assets/ButtonImg/DryCleaning.svg";
 import dryCleanOn from "../../../assets/ButtonImg/DryCleaningActive.svg";
 
 const ButtonData = [
-  { id: 1, imageOff: entireOff, imageOn: entireOn, text: "전체보기" },
-  { id: 2, imageOff: waterOff, imageOn: waterOn, text: "물세탁" },
-  { id: 3, imageOff: bleachingOff, imageOn: bleachingOn, text: "표백제" },
-  { id: 4, imageOff: dryOff, imageOn: dryOn, text: "건조" },
-  { id: 5, imageOff: steamOff, imageOn: steamOn, text: "다림질" },
-  { id: 6, imageOff: dryCleanOff, imageOn: dryCleanOn, text: "드라이클리닝" },
+  {
+    id: 1,
+    imageOff: entireOff,
+    imageOn: entireOn,
+    text: "전체보기",
+    isActive: false,
+  },
+  {
+    id: 2,
+    imageOff: waterOff,
+    imageOn: waterOn,
+    text: "물세탁",
+    isActive: false,
+  },
+  {
+    id: 3,
+    imageOff: bleachingOff,
+    imageOn: bleachingOn,
+    text: "표백제",
+    isActive: false,
+  },
+  { id: 4, imageOff: dryOff, imageOn: dryOn, text: "건조", isActive: false },
+  {
+    id: 5,
+    imageOff: steamOff,
+    imageOn: steamOn,
+    text: "다림질",
+    isActive: false,
+  },
+  {
+    id: 6,
+    imageOff: dryCleanOff,
+    imageOn: dryCleanOn,
+    text: "드라이클리닝",
+    isActive: false,
+  },
 ];
 
 export default ButtonData;
