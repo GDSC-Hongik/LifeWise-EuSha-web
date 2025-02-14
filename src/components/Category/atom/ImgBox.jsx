@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Img from "../../../assets/LaundryData/water1.svg";
 
 const ImageSize = styled.img`
   width: 90px;
@@ -12,8 +11,8 @@ const ImageSize = styled.img`
   transition: filter 0.3s ease;
 `;
 
-const ImageBox = () => {
-  return <ImageSize src={Img} className="img-box" />;
+const ImgBox = ({ img }) => {
+  return <ImageSize src={img} className="img-box" alt="Laundry Icon" />;
 };
 
-export default ImageBox;
+export default ImgBox;

@@ -8,13 +8,12 @@ const Container = styled.div`
   height: 220px;
   background-color: white;
   overflow: hidden;
-  /* border: solid; */
 `;
 
-const Content = () => {
+const Content = ({ img, signBody }) => {
   return (
     <Container>
-      <Upper />
+      <Upper img={img} signBody={signBody} />
       <Lower />
     </Container>
   );

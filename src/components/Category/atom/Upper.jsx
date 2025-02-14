@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ImgBox from "../atom/ImgBox";
 import BookmarkBox from "../atom/BookmarkBox";
-import TextOverlay from "../atom/TextOverlay"; // TextOverlay 컴포넌트 import
+import TextOverlay from "../atom/TextOverlay";
 
 const UpperContainer = styled.div`
   position: relative;
@@ -18,25 +18,14 @@ const UpperContainer = styled.div`
   &:hover .img-box {
     filter: blur(4px);
   }
-
-  /* TextOverlay가 UpperContainer:hover에 의해 보이게 됨 */
 `;
 
-const Upper = () => {
+const Upper = ({ img, signBody }) => {
   return (
     <UpperContainer className="upper-container">
-      {" "}
-      {/* upper-container 클래스 추가 */}
       <BookmarkBox />
-      <ImgBox />
-      <TextOverlay
-        text="
-      테스트입니다\n 
-      테스트입니다\n 
-      테스트 입니다 
-      테스트 입니다"
-      />{" "}
-      {/* TextOverlay 컴포넌트 사용 */}
+      <ImgBox img={img} />
+      <TextOverlay messages={signBody} />
     </UpperContainer>
   );
 };

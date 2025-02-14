@@ -30,8 +30,7 @@ const Laundry = () => {
         activeButton={activeButton}
         setActiveButton={setActiveButton}
       />
-      {/* <Body activeButton={activeButton} /> */}
-      <Body />
+      <Body activeButton={activeButton} />
     </LaundryContainer>
   );
 };

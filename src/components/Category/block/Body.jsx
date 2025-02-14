@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import LaundryData from "../data/LaundryData";
+import LaundryData from "../data/LaundryData";
 import Content from "../component/Content";
 
 const BodyContainer = styled.div`
@@ -7,29 +7,22 @@ const BodyContainer = styled.div`
   padding: 20px;
   font-size: 18px;
   font-weight: bold;
-  display: flex; /* Flexbox 레이아웃 사용 */
-  flex-wrap: wrap; /* 내용이 넘치면 다음 줄로 넘기기 */
-  gap: 20px; /* Content 컴포넌트 사이 간격 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 
-// const Body = ({ activeButton }) => {
-//   return (
-//     <BodyContainer>
-//       {activeButton ? LaundryData[activeButton] : ""}
+const Body = ({ activeButton }) => {
+  // activeButton과 subCategoryID가 같은 데이터 필터링
 
-//     </BodyContainer>
-//   );
-// };
-
-// export default Body;
-
-const Body = () => {
-  const contentCount = 6; // Content 컴포넌트 개수
+  const filteredData = LaundryData.filter(
+    (item) => item.subCategoryID === activeButton
+  );
 
   return (
     <BodyContainer>
-      {Array.from({ length: contentCount }, (_, i) => (
-        <Content key={i} />
+      {filteredData.map((item) => (
+        <Content key={item.id} img={item.img} signBody={item.signBody} />
       ))}
     </BodyContainer>
   );
