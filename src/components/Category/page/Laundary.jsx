@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import Header from "../block/Header";
+import HeaderMain from "../../Header";
 import Body from "../block/Body";
 // import Content from "../component/Content";
 
@@ -25,6 +26,7 @@ const Laundry = () => {
           }
         `}
       </style>
+      <HeaderMain></HeaderMain>
       <Header />
       <ButtonBar
         activeButton={activeButton}
