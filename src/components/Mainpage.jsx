@@ -45,7 +45,6 @@ const Mainpage = () => {
   return (
     <div className="wrapper">
       <Header />
-
       <section className="hero">
         <img src={slides[currentSlide]} alt={`슬라이드 ${currentSlide + 1}`} />
         <div className="hero-text">

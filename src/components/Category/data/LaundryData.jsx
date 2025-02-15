@@ -1,0 +1,153 @@
+import LaundryDataImg from "./LaundryDataImg";
+
+const content = [
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 1,
+    img: LaundryDataImg.water_1,
+    signBody: [
+      "물 온도 95°C로 세탁",
+      "세탁기, 손세탁 가능",
+      "세제 종류 제한 없음",
+      "삶을 수 있음",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 2,
+    img: LaundryDataImg.water_2,
+    signBody: [
+      "물 온도 60°C로 세탁",
+      "세탁기, 손세탁 가능",
+      "세제 종류 제한 없음",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 3,
+    img: LaundryDataImg.water_3,
+    signBody: [
+      "물 온도 40°C로 세탁",
+      "세탁기, 손세탁 가능",
+      "세제 종류 제한 없음",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 4,
+    img: LaundryDataImg.water_4,
+    signBody: [
+      "물 온도 40°C로 세탁",
+      "세탁기로 약하게 세탁",
+      "약하게 손세탁 가능",
+      "세제 종류 제한 없음",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 5,
+    img: LaundryDataImg.water_5,
+    signBody: [
+      "물 온도 30°C로 세탁",
+      "세탁기로 약하게 세탁",
+      "약하게 손세탁 가능",
+      "중성세제 사용",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 6,
+    img: LaundryDataImg.water_6,
+    signBody: [
+      "물 온도 30°C로 세탁",
+      "세탁기 사용 불가",
+      "약하게 손세탁 가능",
+      "중성세제 사용",
+    ],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 2,
+    id: 7,
+    img: LaundryDataImg.water_7,
+    signBody: ["물세탁 안됨"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 1,
+    img: LaundryDataImg.bleaching_1,
+    signBody: ["-염소계 표백제로 표백"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 2,
+    img: LaundryDataImg.bleaching_2,
+    signBody: ["-염소계 표백제로 표백할 수 없음"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 3,
+    img: LaundryDataImg.bleaching_3,
+    signBody: ["-산소계 표백제로 표백"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 4,
+    img: LaundryDataImg.bleaching_4,
+    signBody: ["-산소계 표백제로 표백할 수 없음"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 5,
+    img: LaundryDataImg.bleaching_5,
+    signBody: ["-산소, 염소계 표백제로 표백"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 3,
+    id: 6,
+    img: LaundryDataImg.bleaching_6,
+    signBody: ["-산소, 염소계 표백제로 표백할 수 없음"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 4,
+    id: 1,
+    img: LaundryDataImg.dry_1,
+    signBody: ["-햇빛에 건조", "-옷걸이에 걸어서 건조"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 4,
+    id: 2,
+    img: LaundryDataImg.dry_2,
+    signBody: ["-그늘에 건조", "-옷걸이에 걸어서 건조"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 4,
+    id: 3,
+    img: LaundryDataImg.dry_3,
+    signBody: ["-햇빛에 건조", "-바닥에 뉘어서 건조"],
+  },
+  {
+    categoryID: 1,
+    subCategoryID: 4,
+    id: 4,
+    img: LaundryDataImg.dry_4,
+    signBody: ["-그늘에 건조", "-바닥에 뉘어서 건조"],
+  },
+];
+
+export default content;
