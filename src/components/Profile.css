@@ -17,7 +17,7 @@
   margin-top: 10px;
   margin-right: 5px;
   width: 300px;
-  height: 370px;
+  height: 340px;
   background: white;
   padding: 5px 20px;
   border-radius: 8px;
@@ -32,10 +32,15 @@
 }
 
 .modal-content .modal-list {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
   border-radius: 10px;
   background-color: rgb(245, 243, 243);
+  align-items: left;
   text-align: left;
   padding: 20px 20px 20px;
+  gap: 10px;
 }
 
 .modal-list .mypage:hover {
@@ -54,7 +59,7 @@
 }
 
 .modal-content .modal-list p {
-  padding-bottom: 5px;
+  text-align: left;
 }
 
 .footer {
@@ -88,6 +93,7 @@
 }
 
 .close-button {
+  margin-top: 15px;
   padding: 10px 20px;
   background-color: #f44336;
   color: white;
