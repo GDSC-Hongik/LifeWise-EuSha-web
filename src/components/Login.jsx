@@ -23,12 +23,14 @@ const Login = () => {
       console.log(response.data.refreshToken);
       console.log(response.data.memberId);
       console.log(response.data.memberName);
+      console.log(response.data.email);
 
       if (response.data.accessToken && response.data.refreshToken) {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
         localStorage.setItem("memberId", response.data.memberId);
         localStorage.setItem("memberName", response.data.memberName);
+        localStorage.setItem("email", response.data.email);
         navigate("/");
       }
     } catch (error) {
