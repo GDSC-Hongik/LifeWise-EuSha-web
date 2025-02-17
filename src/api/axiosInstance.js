@@ -42,7 +42,8 @@ API.interceptors.response.use(
         // 만약 refreshToken이 없다면 토큰삭제 후 로그인 페이지로 이동
         if (!refreshToken) {
           localStorage.removeItem("accessToken");
-          window.location.href = "/Login";
+          // 추후 주석 해제
+          // window.location.href = "/Login";
           return Promise.reject(error);
         }
 
