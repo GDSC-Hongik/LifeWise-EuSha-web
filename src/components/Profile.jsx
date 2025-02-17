@@ -28,7 +28,7 @@ const Profile = ({ onClose }) => {
         return;
       }
 
-      await API.delete("http://localhost:8080/members/logout", {
+      await API.delete("http://43.201.193.230:8080/members/logout", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
@@ -39,6 +39,7 @@ const Profile = ({ onClose }) => {
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
       localStorage.removeItem("memberName");
+      localStorage.removeItem("email");
 
       console.log("logout 성공"); // 검증
       navigate("/"); // 로그아웃하면
@@ -62,12 +63,11 @@ const Profile = ({ onClose }) => {
         </h2>
         <div className="modal-list">
           <p className="mypage">
-            <Link to="./mypage">📄마이페이지</Link>
+            <Link to="/mypage">📄마이페이지</Link>
           </p>
           <p className="bookmark">
-            <Link to="./bookmark">🔖북마크</Link>
+            <Link to="/bookmark">🔖북마크</Link>
           </p>
-          <p className="setting">⚙️설정</p>
         </div>
         <div className="footer">
           {memberName && (
@@ -75,7 +75,6 @@ const Profile = ({ onClose }) => {
               로그아웃
             </p>
           )}
-          <p className="question">고객센터</p>
         </div>
         <button onClick={onClose} className="close-button">
           닫기

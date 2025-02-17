@@ -41,7 +41,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/members/signup",
+        "http://43.201.193.230:8080/members/signup",
         {
           memberName,
           email,
