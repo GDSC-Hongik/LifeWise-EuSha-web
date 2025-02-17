@@ -1,0 +1,64 @@
+.accout-container {
+  margin: 0;
+}
+
+.account-title {
+  margin-bottom: 30px;
+}
+
+/* 프로필 섹션 */
+.profile-section,
+.password-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.profile-section h2,
+.password-section h2 {
+  width: 100%;
+  margin-left: 30px;
+}
+
+.profile-section img {
+  align-items: center;
+  width: 20%;
+  height: 20%;
+}
+
+.profile-section h3 {
+  margin-top: 0;
+}
+
+.profile-section p {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.profile-btn,
+.password-btn {
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  background-color: #5a4328;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-bottom: 15px;
+  margin-right: 20px;
+  font-weight: 400;
+}
+
+.profile-btn:hover,
+.password-btn:hover {
+  background-color: #8b5e3c;
+}
