@@ -43,6 +43,9 @@ const Profile = ({ onClose }) => {
       }, 0);
     } catch (error) {
       console.error("logout 실패", error);
+      if (error.response) {
+        console.error("응답 오류", error.response);
+      }
       alert("logout 실패"); // 검증
     }
   };
