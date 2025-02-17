@@ -15,7 +15,7 @@ const Profile = ({ onClose }) => {
     } else {
       setmemberName(null);
     }
-  }, [setmemberName]);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -44,9 +44,7 @@ const Profile = ({ onClose }) => {
       alert("로그아웃 되었습니다.");
 
       onClose();
-      setTimeout(() => {
-        navigate("/");
-      }, 0);
+      window.location.reload(); // 페이지 새로고침
     } catch (error) {
       console.error("logout 실패", error);
       if (error.response) {
