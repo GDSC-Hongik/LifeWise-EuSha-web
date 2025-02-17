@@ -41,7 +41,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://43.201.193.230:8080/members/signup",
+        "https://life-wise.site/members/signup",
         {
           memberName,
           email,

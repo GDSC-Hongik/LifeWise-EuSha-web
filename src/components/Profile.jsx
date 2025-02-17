@@ -28,7 +28,7 @@ const Profile = ({ onClose }) => {
         return;
       }
 
-      await API.delete("http://43.201.193.230:8080/members/logout", {
+      await API.delete("https://life-wise.site/members/logout", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",

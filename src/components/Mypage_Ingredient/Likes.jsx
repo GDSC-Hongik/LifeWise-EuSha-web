@@ -11,14 +11,11 @@ const Likes = () => {
     const fetchLikes = async () => {
       try {
         const accessToken = localStorage.getItem("accessToken");
-        const response = await API.get(
-          "http://43.201.193.230:8080/members/likes",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await API.get("https://life-wise.site/members/likes", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
 
         if (response.status === 200) {
           setLikes(response.data);

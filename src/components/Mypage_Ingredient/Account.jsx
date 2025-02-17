@@ -24,7 +24,7 @@ const Account = () => {
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await API.put(
-        "http://43.201.193.230:8080/members/changeName",
+        "https://life-wise.site/members/changeName",
         { memberName: newMemberName },
         {
           headers: {
@@ -55,7 +55,7 @@ const Account = () => {
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await API.put(
-        "http://43.201.193.230:8080/members/changePassword",
+        "https://life-wise.site/members/changePassword",
         { password: newPassWord },
         {
           headers: {

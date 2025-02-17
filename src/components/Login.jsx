@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await API.post(
-        "http://43.201.193.230:8080/members/login", // AWS 서버 주소로 변경
+        "https://life-wise.site/members/login", // AWS 서버 주소로 변경
         { email, password }
       );
 
