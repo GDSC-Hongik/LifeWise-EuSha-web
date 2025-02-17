@@ -15,7 +15,7 @@ const Profile = ({ onClose }) => {
     } else {
       setmemberName(null);
     }
-  }, []);
+  }, [setmemberName]);
 
   const handleLogout = async () => {
     try {
