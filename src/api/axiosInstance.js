@@ -32,32 +32,32 @@ API.interceptors.request.use(
 
 // accessToken이 만료되었다면 refreshToken를 body에 넣어 서버에 요청을 보낸다.
 
+// accessToken 갱신 시도 코드
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
-    // 서버에서 401 Unauthorized 에러가 오면, accessToken이 만료된것으로 판단.
     if (error.response && error.response.status === 401) {
       try {
         const refreshToken = localStorage.getItem("refreshToken");
-        // 만약 refreshToken이 없다면 토큰삭제 후 로그인 페이지로 이동
+
         if (!refreshToken) {
+          // refreshToken이 없다면 바로 로그아웃 처리
           localStorage.removeItem("accessToken");
-          // 추후 주석 해제
-          // window.location.href = "/Login";
+          window.location.href = "/Login"; // 로그인 페이지로 이동
           return Promise.reject(error);
         }
 
-        // refreshToken을 사용해 새로운 accessToken 요청부분
+        // refreshToken을 이용해 새로운 accessToken을 요청
         const refreshResponse = await axios.post(
           "https://life-wise.site/refreshToken",
-          { refreshToken }, // body 부분
+          { refreshToken }, // 서버에 refreshToken 보내기
           { headers: { "Content-Type": "application/json" } }
         );
 
-        // 새로 받은 accessToken을 localStorage에 저장
+        // 성공적으로 새로운 accessToken을 받았다면 localStorage에 저장
         localStorage.setItem("accessToken", refreshResponse.data.accessToken);
 
-        // 원래 실패했던 요청의 Authorization 헤더를 새로운 accessToken으로 업데이트
+        // 원래 실패한 요청에 새로운 accessToken을 추가해서 재요청
         error.config.headers[
           "Authorization"
         ] = `Bearer ${refreshResponse.data.accessToken}`;
@@ -68,12 +68,12 @@ API.interceptors.response.use(
           "refreshToken을 이용하여 accessToken갱신 실패",
           refreshError
         );
-      }
 
-      // refreshToken이 있는데 만료되었다면 로그아웃이 처리
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      window.location.href = "/Login";
+        // refreshToken 갱신에 실패했다면 로그아웃 처리
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        window.location.href = "/Login"; // 로그인 페이지로 이동
+      }
     }
 
     return Promise.reject(error);
