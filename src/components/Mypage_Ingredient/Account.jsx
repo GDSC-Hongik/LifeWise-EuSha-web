@@ -6,35 +6,25 @@ import API from "../../api/axiosInstance";
 const Account = () => {
   const [memberName, setmemberName] = useState("");
   const [newMemberName, setNewMemberName] = useState("");
-  const [password, setPassword] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newPassWord, setNewPassWord] = useState("");
+  const [isNameModalOpen, setIsNameModalOpen] = useState(false);
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const [email, setEmail] = useState("");
-
-  const openModal = () => setIsModalOpen(true);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setNewMemberName("");
-  };
 
   useEffect(() => {
     const storedmemberName = localStorage.getItem("memberName");
     const storedemail = localStorage.getItem("email");
 
-    if (storedmemberName) {
-      setmemberName(storedmemberName);
-    }
-    if (storedemail) {
-      setEmail(storedemail);
-    }
+    if (storedmemberName) setmemberName(storedmemberName);
+    if (storedemail) setEmail(storedemail);
   }, []);
 
-  const handlememberName = async () => {
+  const handleMemberName = async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await API.put(
-        "http://localhost:8080/members/newName",
+        "http://43.201.193.230:8080/members/changeName",
         { memberName: newMemberName },
         {
           headers: {
@@ -51,7 +41,8 @@ const Account = () => {
         setmemberName(updatedName);
         localStorage.setItem("memberName", updatedName);
 
-        closeModal();
+        setIsNameModalOpen(false);
+        setNewMemberName("");
       }
     } catch (error) {
       console.error("이름 변경 실패", error);
@@ -59,9 +50,31 @@ const Account = () => {
     }
   };
 
-  const handlePassword = () => {
-    const newPassword = prompt("새로운 비밀번호를 입력하세요: ", password);
-    setPassword(newPassword);
+  const handlePassword = async () => {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+
+      const response = await API.put(
+        "http://43.201.193.230:8080/members/changePassword",
+        { password: newPassWord },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        alert("비밀번호 변경 성공!");
+
+        setIsPasswordModalOpen(false);
+        setNewPassWord("");
+      }
+    } catch (error) {
+      console.error("비밀번호 변경 실패", error);
+      alert("비밀번호 변경 실패");
+    }
   };
 
   return (
@@ -74,13 +87,16 @@ const Account = () => {
         <img src={Profile} alt="프로필 사진"></img>
         <h3>{memberName || "사용자 이름"}</h3>
         <p>{email || "사용자 이메일"}</p>
-        <button onClick={openModal} className="profile-btn">
+        <button
+          onClick={() => setIsNameModalOpen(true)}
+          className="profile-btn"
+        >
           이름 변경
         </button>
       </section>
 
       {/* 이름 변경 모달 */}
-      {isModalOpen && (
+      {isNameModalOpen && (
         <div className="namemodal-overlay">
           <div className="namemodal">
             <h2>이름 변경</h2>
@@ -91,8 +107,8 @@ const Account = () => {
               placeholder="새 이름을 입력하세요"
             />
             <div className="namemodal-buttons">
-              <button onClick={handlememberName}>확인</button>
-              <button onClick={closeModal}>취소</button>
+              <button onClick={handleMemberName}>확인</button>
+              <button onClick={() => setIsNameModalOpen(false)}>취소</button>
             </div>
           </div>
         </div>
@@ -101,10 +117,34 @@ const Account = () => {
       {/* 비밀번호 변경 */}
       <section className="password-section">
         <h2>비밀번호</h2>
-        <button onClick={handlePassword} className="password-btn">
+        <button
+          onClick={() => setIsPasswordModalOpen(true)}
+          className="password-btn"
+        >
           비밀번호 변경
         </button>
       </section>
+
+      {/* 비밀번호 변경 모달 */}
+      {isPasswordModalOpen && (
+        <div className="namemodal-overlay">
+          <div className="namemodal">
+            <h2>비밀번호 변경</h2>
+            <input
+              type="password"
+              value={newPassWord}
+              onChange={(e) => setNewPassWord(e.target.value)}
+              placeholder="새 비밀번호를 입력하세요"
+            />
+            <div className="namemodal-buttons">
+              <button onClick={handlePassword}>확인</button>
+              <button onClick={() => setIsPasswordModalOpen(false)}>
+                취소
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
