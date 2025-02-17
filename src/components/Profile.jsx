@@ -41,6 +41,7 @@ const Profile = ({ onClose }) => {
       localStorage.clear();
       setmemberName("");
       console.log("로그아웃 성공");
+      alert("로그아웃 되었습니다.");
 
       onClose();
       setTimeout(() => {
