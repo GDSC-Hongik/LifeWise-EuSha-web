@@ -28,13 +28,18 @@ const Profile = ({ onClose }) => {
         return;
       }
 
-      await API.delete("https://life-wise.site/members/logout", {
-        data: { refreshToken },
-      });
+      // 로그아웃 요청 전에 refreshToken 유효성 검사
+      const response = await API.delete(
+        "https://life-wise.site/members/logout",
+        {
+          data: { refreshToken },
+        }
+      );
+
+      console.log(response.data); // 응답 데이터 확인
 
       localStorage.clear();
       setmemberName("");
-
       console.log("로그아웃 성공");
 
       onClose();
@@ -45,10 +50,16 @@ const Profile = ({ onClose }) => {
       console.error("logout 실패", error);
       if (error.response) {
         console.error("응답 오류", error.response);
+        if (error.response.status === 401) {
+          // 만약 401 오류라면 refreshToken이 만료된 상태일 수 있음
+          alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+          navigate("/Login"); // 로그인 페이지로 리디렉션
+        }
       }
-      alert("logout 실패"); // 검증
+      alert("로그아웃 실패");
     }
   };
+
   return (
     <div className="profilemodal">
       <div className="profilemodal-content">
