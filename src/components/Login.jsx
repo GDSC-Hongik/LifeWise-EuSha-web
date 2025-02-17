@@ -34,8 +34,15 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      alert("로그인 실패");
-      console.error("로그인 실패", error);
+      if (error.response) {
+        if (error.response.status === 401) {
+          alert("비밀번호가 일치하지 않습니다.");
+        } else {
+          alert("로그인 실패: ");
+        }
+      } else {
+        alert("로그인 실패 원인 x");
+      }
     }
   };
 
