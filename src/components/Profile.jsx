@@ -47,8 +47,8 @@ const Profile = ({ onClose }) => {
     }
   };
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="profilemodal">
+      <div className="profilemodal-content">
         <h2 className="username">
           👤{" "}
           {memberName ? (
@@ -59,7 +59,7 @@ const Profile = ({ onClose }) => {
             </Link>
           )}
         </h2>
-        <div className="modal-list">
+        <div className="profilemodal-list">
           <p className="mypage">
             <Link to="/mypage">📄마이페이지</Link>
           </p>
@@ -67,7 +67,7 @@ const Profile = ({ onClose }) => {
             <Link to="/bookmark">🔖북마크</Link>
           </p>
         </div>
-        <div className="footer">
+        <div className="profilefooter">
           {memberName && (
             <p className="logout" onClick={handleLogout}>
               로그아웃
