@@ -55,6 +55,7 @@ body {
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
+  cursor: default;
   /* text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); */
 }
 
@@ -99,6 +100,7 @@ body {
 .category h2 {
   font-size: 1.8em;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .cards {

@@ -40,8 +40,10 @@ const Login = () => {
         } else {
           alert("로그인 실패: ");
         }
+      } else if (error.request) {
+        alert("서버 응답 x");
       } else {
-        alert("로그인 실패 원인 x");
+        alert(`로그인 요청 실패: ${error.message}`);
       }
     }
   };
