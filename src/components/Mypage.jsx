@@ -6,15 +6,7 @@ import Likes from "./Mypage_Ingredient/Likes"; // 추가
 
 const Mypage = () => {
   const [selectedMenu, setSelectedMenu] = useState("account"); // 기본값 설정
-  // const navigate = useNavigate();
 
-  // useEffect(()=>{
-  //   const accessToken = localStorage.getItem("accessToken");
-  //   const refreshToken = localStorage.getItem("refreshToken");
-
-  //   if (!)
-
-  // })
   const renderContent = () => {
     console.log("현재 선택된 메뉴:", selectedMenu); // 상태 변경 확인
     switch (selectedMenu) {
