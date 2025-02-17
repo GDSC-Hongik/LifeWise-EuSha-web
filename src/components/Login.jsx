@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await API.post(
-        "http://43.201.193.230:8080/members/login", // AWS 서버 주소로 변경
+        "https://life-wise.site/members/login", // AWS 서버 주소로 변경
         { email, password }
       );
 
@@ -34,8 +34,17 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      alert("로그인 실패");
-      console.error("로그인 실패", error);
+      if (error.response) {
+        if (error.response.status === 401) {
+          alert("비밀번호가 일치하지 않습니다.");
+        } else {
+          alert("로그인 실패: ");
+        }
+      } else if (error.request) {
+        alert("서버 응답 x");
+      } else {
+        alert(`로그인 요청 실패: ${error.message}`);
+      }
     }
   };
 
@@ -50,7 +59,9 @@ const Login = () => {
   return (
     <div className="loginpage">
       <div className="left">
-        <div className="title">LifeWise</div>
+        <div className="title">
+          <Link to="/">LifeWise</Link>
+        </div>
         <form className="form" onSubmit={handlelogin}>
           <label>이메일</label>
           <div className="inputBox">

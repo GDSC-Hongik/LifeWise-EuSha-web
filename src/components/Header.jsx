@@ -22,16 +22,16 @@ const Header = () => {
 
         {/* 로그인 여부에 따라 변하나? */}
         <nav>
-          {/* {isLogin ? (
-            <button onClick={() => setShowModal(true)}>⏺️</button>
+          {isLogin ? (
+            <button onClick={() => setShowModal(true)}>🧝</button>
           ) : (
             <button className="login">
               <Link to="/Login">로그인</Link>
             </button>
-          )} */}
+          )}
 
           {/* ********************/}
-          <button className="login">
+          {/* <button className="login">
             <Link to="/Login">로그인</Link>
           </button>
 
@@ -41,7 +41,7 @@ const Header = () => {
             style={{ fontSize: 20 }}
           >
             🧝
-          </button>
+          </button> */}
           {/* ********************/}
 
           {showModal &&

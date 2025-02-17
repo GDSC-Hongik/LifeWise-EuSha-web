@@ -1,7 +1,7 @@
 // 회원가입 페이지
 import "./Signup.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import API from "../api/axiosInstance";
 import axios from "axios";
 
@@ -41,7 +41,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://43.201.193.230:8080/members/signup",
+        "https://life-wise.site/members/signup",
         {
           memberName,
           email,
@@ -60,7 +60,9 @@ const Signup = () => {
     <div className="signuppage">
       {/* 왼쪽 영역 */}
       <div className="left">
-        <h1 className="title">LifeWise</h1>
+        <h1 className="title">
+          <Link to="/">LifeWise</Link>
+        </h1>
         <form className="form" onSubmit={handleSubmit}>
           <label>이름</label>
           <div className="inputBox">

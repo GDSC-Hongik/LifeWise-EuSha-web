@@ -8,17 +8,11 @@ const Likes = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLikes = async () => {
+    const fetchLikes = async (e) => {
+      e.preventDefault();
+
       try {
-        const accessToken = localStorage.getItem("accessToken");
-        const response = await API.get(
-          "http://43.201.193.230:8080/members/likes",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await API.get("https://life-wise.site/members/likes");
 
         if (response.status === 200) {
           setLikes(response.data);
@@ -44,15 +38,15 @@ const Likes = () => {
       <ul className="likes-list">
         {likes.length > 0
           ? likes.map((like) => (
-              <li key={like.id} className="like-item">
+              <li key={like.likeid} className="like-item">
                 <img
-                  src={like.imageUrl}
-                  alt={like.title}
+                  src={like.detail.imageUrl}
+                  alt={like.detail.title}
                   className="like-image"
                 />
                 <div className="like-info">
-                  <h3>{like.title}</h3>
-                  <p>{like.description}</p>
+                  <h3>{like.detail.title}</h3>
+                  <p>{like.detail.description}</p>
                 </div>
               </li>
             ))
