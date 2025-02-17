@@ -17,12 +17,12 @@ const API = axios.create({
 // 모든 API요청이 전송되기 전에 accessToken을 자동으로 추가.
 API.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("accessToken"); // localStorage에서 accessToken 가져오기
-    if (token) {
+    const accessToken = localStorage.getItem("accessToken"); // localStorage에서 accessToken 가져오기
+    if (accessToken) {
       // accessToken이 있으면 Authorization 헤더에 추가
       // 백엔드 서버는 이 Authorization 헤더를 보고, 인증된 사용자인지 확인
       // Bearer ${token}은 JWT 토큰 방식에서 사용하는 인증 방식(Bearer 쓰고 띄어쓰기)
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers["Authorization"] = `Bearer ${accessToken}`;
     }
     return config;
   },
