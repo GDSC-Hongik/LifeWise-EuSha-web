@@ -19,7 +19,6 @@ const Profile = ({ onClose }) => {
 
   const handleLogout = async () => {
     try {
-      const accessToken = localStorage.getItem("accessToken");
       const refreshToken = localStorage.getItem("refreshToken");
 
       if (!refreshToken) {
@@ -29,10 +28,6 @@ const Profile = ({ onClose }) => {
       }
 
       await API.delete("https://life-wise.site/members/logout", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
         data: { refreshToken },
       });
 
