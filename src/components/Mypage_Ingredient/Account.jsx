@@ -21,17 +21,9 @@ const Account = () => {
 
   const handleMemberName = async () => {
     try {
-      const accessToken = localStorage.getItem("accessToken");
-
       const response = await API.put(
         "https://life-wise.site/members/changeName",
-        { memberName: newMemberName },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-        }
+        { memberName: newMemberName }
       );
 
       if (response.status === 200) {
@@ -52,17 +44,9 @@ const Account = () => {
 
   const handlePassword = async () => {
     try {
-      const accessToken = localStorage.getItem("accessToken");
-
       const response = await API.put(
         "https://life-wise.site/members/changePassword",
-        { password: newPassWord },
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-          },
-        }
+        { password: newPassWord }
       );
 
       if (response.status === 200) {

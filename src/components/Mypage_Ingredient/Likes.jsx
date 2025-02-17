@@ -10,12 +10,7 @@ const Likes = () => {
   useEffect(() => {
     const fetchLikes = async () => {
       try {
-        const accessToken = localStorage.getItem("accessToken");
-        const response = await API.get("https://life-wise.site/members/likes", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+        const response = await API.get("https://life-wise.site/members/likes");
 
         if (response.status === 200) {
           setLikes(response.data);
