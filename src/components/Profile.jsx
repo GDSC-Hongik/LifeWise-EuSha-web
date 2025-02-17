@@ -24,6 +24,7 @@ const Profile = ({ onClose }) => {
       if (!refreshToken) {
         onClose();
         navigate("/");
+        localStorage.clear();
         return;
       }
 
@@ -31,13 +32,15 @@ const Profile = ({ onClose }) => {
         data: { refreshToken },
       });
 
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.removeItem("memberName");
-      localStorage.removeItem("email");
+      localStorage.clear();
+      setmemberName("");
 
-      console.log("logout 성공"); // 검증
-      navigate("/"); // 로그아웃하면
+      console.log("로그아웃 성공");
+
+      onClose();
+      setTimeout(() => {
+        navigate("/");
+      }, 0);
     } catch (error) {
       console.error("logout 실패", error);
       alert("logout 실패"); // 검증
