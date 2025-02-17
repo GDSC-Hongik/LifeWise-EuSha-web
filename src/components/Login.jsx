@@ -57,7 +57,9 @@ const Login = () => {
   return (
     <div className="loginpage">
       <div className="left">
-        <div className="title">LifeWise</div>
+        <div className="title">
+          <Link to="/">LifeWise</Link>
+        </div>
         <form className="form" onSubmit={handlelogin}>
           <label>이메일</label>
           <div className="inputBox">
