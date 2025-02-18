@@ -25,7 +25,7 @@ const Upper = ({ img, signBody }) => {
     <UpperContainer className="upper-container">
       <BookmarkBox />
       <ImgBox img={img} />
-      <TextOverlay messages={signBody} />
+      <TextOverlay signBody={signBody} />
     </UpperContainer>
   );
 };

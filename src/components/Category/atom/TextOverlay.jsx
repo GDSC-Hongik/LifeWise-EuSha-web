@@ -17,7 +17,6 @@ const TextOverlayContainer = styled.div`
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   background: rgba(255, 255, 255, 0.8);
-  padding: 10px;
   text-align: center;
 
   .upper-container:hover & {
@@ -26,11 +25,13 @@ const TextOverlayContainer = styled.div`
   }
 `;
 
-const TextOverlay = ({ messages }) => {
+const TextOverlay = ({ signBody }) => {
   return (
     <TextOverlayContainer>
-      {messages.map((message, index) => (
-        <div key={index}>{message}</div>
+      {signBody.map((signBody, index) => (
+        <div key={index} style={{ textAlign: "left" }}>
+          {signBody}
+        </div> // 각 요소의 텍스트 왼쪽 정렬
       ))}
     </TextOverlayContainer>
   );
