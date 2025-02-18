@@ -1,46 +1,24 @@
 import "./Likes.css";
 import { useState, useEffect } from "react";
-import API from "../../api/axiosInstance";
 
 const Bookmarklist = () => {
   const [bookMarks, setBookMarks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchLikes = async (e) => {
-      e.preventDefault();
-
-      try {
-        const response = await API.get(
-          "https://life-wise.site/members/bookmarks"
-        );
-
-        if (response.status === 200) {
-          setBookMarks(response.data);
-        }
-      } catch (error) {
-        console.error("북마크 목록을 가져오는 중 오류 발생:", error);
-        setError("북마크 목록을 불러오는 데 실패했습니다.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchLikes();
+    const storedBookmarks = localStorage.getItem("bookmarks");
+    if (storedBookmarks) {
+      setBookMarks(JSON.parse(storedBookmarks));
+    }
   }, []);
 
   return (
     <div className="likes-container">
       <h1>내 북마크 목록</h1>
 
-      {loading && <p>로딩 중...</p>}
-      {error && <p className="error">{error}</p>}
-
       <ul className="likes-list">
         {bookMarks.length > 0
           ? bookMarks.map((bookmark) => (
-              <li key={bookmark.likeid} className="like-item">
+              <li key={bookmark.bookmarkId} className="like-item">
                 <img
                   src={bookmark.detail.imageUrl}
                   alt={bookmark.detail.title}
@@ -52,7 +30,7 @@ const Bookmarklist = () => {
                 </div>
               </li>
             ))
-          : !loading && <p>북마크한 항목이 없습니다.</p>}
+          : !(<p>북마크한 항목이 없습니다.</p>)}
       </ul>
     </div>
   );
