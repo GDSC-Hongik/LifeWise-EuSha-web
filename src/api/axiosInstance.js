@@ -18,6 +18,7 @@ const API = axios.create({
 API.interceptors.request.use(
   (config) => {
     const accessToken = localStorage.getItem("accessToken"); // localStorage에서 accessToken 가져오기
+
     if (accessToken) {
       // accessToken이 있으면 Authorization 헤더에 추가
       // 백엔드 서버는 이 Authorization 헤더를 보고, 인증된 사용자인지 확인
@@ -37,6 +38,7 @@ API.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response && error.response.status === 401) {
+      console.log("🚨 401 에러 발생! Refresh Token으로 Access Token 갱신 시도");
       try {
         const refreshToken = localStorage.getItem("refreshToken");
 
