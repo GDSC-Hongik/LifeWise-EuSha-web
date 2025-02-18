@@ -68,7 +68,7 @@ const Profile = ({ onClose }) => {
     }
 
     try {
-      const response = await API.get("https://life-wise.site/members/mypage");
+      const response = await API.get("https://life-wise.site/mypage");
 
       console.log("마이페이지 응답: ", response.data);
       navigate("/mypage");
@@ -93,9 +93,13 @@ const Profile = ({ onClose }) => {
     }
 
     try {
-      const response = await API.get("https://life-wise.site/members/bookmark");
+      const response = await API.get("https://life-wise.site/bookmarks");
 
       console.log("북마크 응답: ", response.data);
+      localStorage.setItem(
+        "bookmarks",
+        JSON.stringify(response.data.bookmarks)
+      );
       navigate("/bookmark");
     } catch (error) {
       console.error("북마크 요청 실패", error);
