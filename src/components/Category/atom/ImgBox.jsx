@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 const ImageSize = styled.img`
-  width: 90px;
-  height: 148px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 50%;
-  top: 55%;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   transition: filter 0.3s ease;
 `;
 
 const ImgBox = ({ img }) => {
-  return <ImageSize src={img} className="img-box" alt="Laundry Icon" />;
+  return <ImageSize src={img} alt="Laundry Icon" />;
 };
 
 export default ImgBox;
