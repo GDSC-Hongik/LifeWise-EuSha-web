@@ -14,21 +14,6 @@ import Header from "./Header";
 const Mainpage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [banner01, banner02, banner03];
-  // const [isLogin, setIsLogin] = useState(false);
-  // const [user, setUser] = useState({}); // 사용자 정보 state
-
-  // 로그인이 되어있지 않다면 로그인 버튼이 나오고
-  // 로그인이 되어있다면 Profile 모달창 버튼이 나오게끔
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-
-    // accessToken이 있다면 True값, 없다면 False값으로 토글
-    setIsLogin(accessToken ? true : false);
-    //console.log(accessToken); // 추후 삭제
-    // alert(accessToken); // 추후 삭제
-  }, []);
 
   // 자동 슬라이드 전환 기능
   useEffect(() => {
