@@ -48,7 +48,7 @@ const Account = () => {
       });
 
       if (response.status === 200) {
-        alert("비밀번호 변경 성공!");
+        alert(`${response.data.message}`);
         console.log(response.data.message);
 
         setIsPasswordModalOpen(false);
