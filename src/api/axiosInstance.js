@@ -52,7 +52,7 @@ API.interceptors.response.use(
         // refreshToken을 이용해 새로운 accessToken을 요청
         const refreshResponse = await axios.post(
           "https://life-wise.site/refreshToken",
-          { refreshToken }, // 서버에 refreshToken 보내기
+          { refreshToken: refreshToken }, // 서버에 refreshToken 보내기
           { headers: { "Content-Type": "application/json" } }
         );
 
