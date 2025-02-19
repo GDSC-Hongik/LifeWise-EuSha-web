@@ -24,7 +24,7 @@ const Bookmarklist = () => {
           bookMarks.map((bookmark) => (
             <li key={bookmark.bookmarkId} className="like-item">
               <img
-                src={bookmark.detail.imageUrl}
+                src={`${"https://life-wise.site"}${bookmark.detail.imageUrl}`}
                 alt={bookmark.detail.title}
                 className="like-image"
               />
