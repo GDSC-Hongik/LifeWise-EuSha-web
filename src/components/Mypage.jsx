@@ -18,7 +18,7 @@ const Mypage = () => {
         console.log("라이크 응답: ", response.data);
         localStorage.setItem("likes", JSON.stringify(response.data.likes));
       } catch (error) {
-        console.error("북마크 요청 실패", error);
+        console.error("좋아요 요청 실패", error);
       }
     }
   };
