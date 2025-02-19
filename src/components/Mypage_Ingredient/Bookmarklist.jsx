@@ -1,5 +1,6 @@
 import "./Likes.css";
 import { useState, useEffect } from "react";
+import "./Bookmarklist.css";
 
 const Bookmarklist = () => {
   const [bookMarks, setBookMarks] = useState([]);
@@ -18,7 +19,7 @@ const Bookmarklist = () => {
   return (
     <div className="likes-container">
       <h1>내 북마크 목록</h1>
-
+      <p className="likes-devide"></p>
       <ul className="likes-list">
         {bookMarks.length > 0 ? (
           bookMarks.map((bookmark) => (
