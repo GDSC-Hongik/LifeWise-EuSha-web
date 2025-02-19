@@ -76,7 +76,7 @@ const Profile = ({ onClose }) => {
       console.error("마이페이지 요청 실패", error);
 
       if (error.response && error.response.status === 401) {
-        alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+        alert("세션이 만료되었습니다. 다시 로그인 해주세요.", error);
         navigate("/Login");
       } else {
         alert("마이페이지 이동 실패");

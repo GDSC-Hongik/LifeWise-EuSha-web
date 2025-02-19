@@ -45,7 +45,7 @@ API.interceptors.response.use(
         if (!refreshToken) {
           // refreshToken이 없다면 바로 로그아웃 처리
           localStorage.removeItem("accessToken");
-          window.location.href = "/Login"; // 로그인 페이지로 이동
+          // window.location.href = "/Login"; // 로그인 페이지로 이동
           return Promise.reject(error);
         }
 
@@ -74,7 +74,7 @@ API.interceptors.response.use(
         // refreshToken 갱신에 실패했다면 로그아웃 처리
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        window.location.href = "/Login"; // 로그인 페이지로 이동
+        // window.location.href = "/Login"; // 로그인 페이지로 이동
       }
     }
 
