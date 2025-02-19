@@ -1,4 +1,7 @@
 .mypage-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   background-color: #f8f9fa;
 }
@@ -12,11 +15,11 @@
 
 .mypage-body {
   display: flex;
-  flex-direction: row;
+  flex: 1;
 }
 
 .sidebar {
-  height: calc(100vh - 90px);
+  /* height: calc(100vh - 90px); */
   width: 250px;
   background-color: #ffffff;
   padding: 20px;
@@ -50,4 +53,5 @@
 .mypage-content {
   flex: 1;
   padding: 30px;
+  background-color: #f8f9fa;
 }
