@@ -5,9 +5,13 @@ const Bookmarklist = () => {
   const [bookMarks, setBookMarks] = useState([]);
 
   useEffect(() => {
-    const storedBookmarks = localStorage.getItem("bookmarks");
-    if (storedBookmarks) {
-      setBookMarks(JSON.parse(storedBookmarks));
+    try {
+      const storedBookmarks = localStorage.getItem("bookmarks");
+      if (storedBookmarks) {
+        setBookMarks(JSON.parse(storedBookmarks));
+      }
+    } catch (error) {
+      console.error("로컬스토리지에서 북마크 가져오기 실패", error);
     }
   }, []);
 
