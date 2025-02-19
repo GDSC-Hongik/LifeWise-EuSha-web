@@ -52,13 +52,15 @@ API.interceptors.response.use(
         // refreshToken을 이용해 새로운 accessToken을 요청
         const refreshResponse = await axios.post(
           "https://life-wise.site/refreshToken",
-          { refreshToken: refreshToken }, // 서버에 refreshToken 보내기
-          { headers: { "Content-Type": "application/json" } }
+          { refreshToken: refreshToken } // 서버에 refreshToken 보내기
         );
 
         // 성공적으로 새로운 accessToken을 받았다면 localStorage에 저장
         localStorage.setItem("accessToken", refreshResponse.data.accessToken);
-
+        console.log(
+          "새로운 accessToken 발급",
+          refreshResponse.data.accessToken
+        );
         // 원래 실패한 요청에 새로운 accessToken을 추가해서 재요청
         error.config.headers[
           "Authorization"
