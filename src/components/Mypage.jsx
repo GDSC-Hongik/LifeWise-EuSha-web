@@ -13,7 +13,7 @@ const Mypage = () => {
 
     if (menu === "likes") {
       try {
-        const response = await API.get("https://life-wise.site/members/likes");
+        const response = await API.get("https://life-wise.site/likes");
 
         console.log("라이크 응답: ", response.data);
         localStorage.setItem("likes", JSON.stringify(response.data.likes));
