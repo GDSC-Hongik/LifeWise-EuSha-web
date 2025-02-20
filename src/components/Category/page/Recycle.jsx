@@ -3,10 +3,10 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import Header from "../block/Header";
-import LaundryBody from "../block/laundryBody";
+import RecycleBody from "../block/RecycleBody";
 // import Content from "../component/Content";
 
-const LaundryContainer = styled.div`
+const RecycleContainer = styled.div`
   position: relative;
   width: 100%;
   ::-webkit-scrollbar {
@@ -17,7 +17,7 @@ const LaundryContainer = styled.div`
 const Laundry = () => {
   const [activeButton, setActiveButton] = useState(1);
   return (
-    <LaundryContainer>
+    <RecycleContainer>
       <style>
         {`
           body::-webkit-scrollbar {
@@ -30,8 +30,8 @@ const Laundry = () => {
         activeButton={activeButton}
         setActiveButton={setActiveButton}
       />
-      <LaundryBody activeButton={activeButton} />
-    </LaundryContainer>
+      <RecycleBody activeButton={activeButton} />
+    </RecycleContainer>
   );
 };
 

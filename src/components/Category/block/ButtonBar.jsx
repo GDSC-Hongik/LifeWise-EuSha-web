@@ -7,7 +7,7 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  gap: 0px 50px;
+  gap: 0px 30px;
 `;
 
 const ButtonBar = ({ activeButton, setActiveButton }) => {
@@ -16,17 +16,19 @@ const ButtonBar = ({ activeButton, setActiveButton }) => {
   };
   return (
     <ButtonContainer>
-      {ButtonData.map(({ id, imageOff, imageOn, text }) => (
-        <Button
-          key={id}
-          id={id}
-          imageOff={imageOff}
-          imageOn={imageOn}
-          text={text}
-          isActive={activeButton === id}
-          onClick={() => handleButtonClick(id)}
-        />
-      ))}
+      {ButtonData.filter(({ id }) => id >= 1 && id <= 6).map(
+        ({ id, imageOff, imageOn, text }) => (
+          <Button
+            key={id}
+            id={id}
+            imageOff={imageOff}
+            imageOn={imageOn}
+            text={text}
+            isActive={activeButton === id}
+            onClick={() => handleButtonClick(id)}
+          />
+        )
+      )}
     </ButtonContainer>
   );
 };

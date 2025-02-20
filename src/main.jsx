@@ -8,10 +8,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App";
-import Recycle from "./components/Recycle"; // 추가된 Recycle 컴포넌트
+import Recycle from "./components/Category/page/Recycle"; // 추가된 Recycle 컴포넌트
 import "./index.css";
 import Laundary from "./components/Category/page/Laundary";
-import Recipe from "./components/Recipe";
+import Recipe from "./components/Category/page/Recipe";
 import Mypage from "./components/Mypage";
 import Bookmark from "./components/Bookmark";
 import Login from "./components/Login";

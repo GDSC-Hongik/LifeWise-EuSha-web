@@ -10,10 +10,11 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Content = ({ img, signBody }) => {
+const Content = ({ imageUrl, description }) => {
+  console.log("Content 컴포넌트에 전달된 imgUrl : ", imageUrl);
   return (
     <Container>
-      <Upper img={img} signBody={signBody} />
+      <Upper imageUrl={imageUrl} description={description} />
       <Lower />
     </Container>
   );
