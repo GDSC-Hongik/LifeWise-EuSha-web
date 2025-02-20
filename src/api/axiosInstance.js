@@ -18,6 +18,7 @@ const API = axios.create({
 API.interceptors.request.use(
   (config) => {
     const accessToken = localStorage.getItem("accessToken"); // localStorage에서 accessToken 가져오기
+
     if (accessToken) {
       // accessToken이 있으면 Authorization 헤더에 추가
       // 백엔드 서버는 이 Authorization 헤더를 보고, 인증된 사용자인지 확인
@@ -37,26 +38,29 @@ API.interceptors.response.use(
   (response) => response,
   async (error) => {
     if (error.response && error.response.status === 401) {
+      console.log("🚨 401 에러 발생! Refresh Token으로 Access Token 갱신 시도");
       try {
         const refreshToken = localStorage.getItem("refreshToken");
 
         if (!refreshToken) {
           // refreshToken이 없다면 바로 로그아웃 처리
           localStorage.removeItem("accessToken");
-          window.location.href = "/Login"; // 로그인 페이지로 이동
+          // window.location.href = "/Login"; // 로그인 페이지로 이동
           return Promise.reject(error);
         }
 
         // refreshToken을 이용해 새로운 accessToken을 요청
         const refreshResponse = await axios.post(
           "https://life-wise.site/refreshToken",
-          { refreshToken }, // 서버에 refreshToken 보내기
-          { headers: { "Content-Type": "application/json" } }
+          { refreshToken: refreshToken } // 서버에 refreshToken 보내기
         );
 
         // 성공적으로 새로운 accessToken을 받았다면 localStorage에 저장
         localStorage.setItem("accessToken", refreshResponse.data.accessToken);
-
+        console.log(
+          "새로운 accessToken 발급",
+          refreshResponse.data.accessToken
+        );
         // 원래 실패한 요청에 새로운 accessToken을 추가해서 재요청
         error.config.headers[
           "Authorization"
@@ -70,9 +74,9 @@ API.interceptors.response.use(
         );
 
         // refreshToken 갱신에 실패했다면 로그아웃 처리
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        window.location.href = "/Login"; // 로그인 페이지로 이동
+        // localStorage.removeItem("accessToken");
+        // localStorage.removeItem("refreshToken");
+        // window.location.href = "/Login"; // 로그인 페이지로 이동
       }
     }
 

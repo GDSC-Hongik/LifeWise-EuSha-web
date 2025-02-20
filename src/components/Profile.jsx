@@ -59,6 +59,60 @@ const Profile = ({ onClose }) => {
     }
   };
 
+  const handleMypageClick = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/login");
+    }
+
+    try {
+      const response = await API.get("https://life-wise.site/mypage");
+
+      console.log("마이페이지 응답: ", response.data);
+      navigate("/mypage");
+    } catch (error) {
+      console.error("마이페이지 요청 실패", error);
+
+      if (error.response && error.response.status === 401) {
+        alert("세션이 만료되었습니다. 다시 로그인 해주세요.", error);
+        navigate("/Login");
+      } else {
+        alert("마이페이지 이동 실패");
+      }
+    }
+  };
+
+  const handleBookmarkClick = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/login");
+    }
+
+    try {
+      const response = await API.get("https://life-wise.site/bookmarks");
+
+      console.log("북마크 응답: ", response.data);
+      localStorage.setItem(
+        "bookmarks",
+        JSON.stringify(response.data.bookmarks)
+      );
+      navigate("/bookmark");
+    } catch (error) {
+      console.error("북마크 요청 실패", error);
+
+      if (error.response && error.response.status === 401) {
+        alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+        navigate("/Login");
+      } else {
+        alert("마이페이지 이동 실패");
+      }
+    }
+  };
+
   return (
     <div className="profilemodal">
       <div className="profilemodal-content">
@@ -73,11 +127,11 @@ const Profile = ({ onClose }) => {
           )}
         </h2>
         <div className="profilemodal-list">
-          <p className="mypage">
-            <Link to="/mypage">📄마이페이지</Link>
+          <p className="mypage" onClick={handleMypageClick}>
+            📄마이페이지
           </p>
-          <p className="bookmark">
-            <Link to="/bookmark">🔖북마크</Link>
+          <p className="bookmark" onClick={handleBookmarkClick}>
+            🔖북마크
           </p>
         </div>
         <div className="profilefooter">

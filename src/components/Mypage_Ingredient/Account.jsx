@@ -21,10 +21,9 @@ const Account = () => {
 
   const handleMemberName = async () => {
     try {
-      const response = await API.put(
-        "https://life-wise.site/members/changeName",
-        { memberName: newMemberName }
-      );
+      const response = await API.put("https://life-wise.site/mypage/name", {
+        newName: newMemberName,
+      });
 
       if (response.status === 200) {
         const updatedName = response.data.memberName;
@@ -44,13 +43,13 @@ const Account = () => {
 
   const handlePassword = async () => {
     try {
-      const response = await API.put(
-        "https://life-wise.site/members/changePassword",
-        { password: newPassWord }
-      );
+      const response = await API.put("https://life-wise.site/mypage/password", {
+        newpassword: newPassWord,
+      });
 
       if (response.status === 200) {
-        alert("비밀번호 변경 성공!");
+        alert(`${response.data.message}`);
+        console.log(response.data.message);
 
         setIsPasswordModalOpen(false);
         setNewPassWord("");
