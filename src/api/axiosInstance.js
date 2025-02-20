@@ -51,7 +51,7 @@ API.interceptors.response.use(
 
         // refreshToken을 이용해 새로운 accessToken을 요청
         const refreshResponse = await axios.post(
-          "https://life-wise.site/refreshToken",
+          "https://life-wise.site/members/refreshToken",
           { refreshToken: refreshToken } // 서버에 refreshToken 보내기
         );
 
@@ -74,9 +74,9 @@ API.interceptors.response.use(
         );
 
         // refreshToken 갱신에 실패했다면 로그아웃 처리
-        // localStorage.removeItem("accessToken");
-        // localStorage.removeItem("refreshToken");
-        // window.location.href = "/Login"; // 로그인 페이지로 이동
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        window.location.href = "/Login"; // 로그인 페이지로 이동
       }
     }
 
