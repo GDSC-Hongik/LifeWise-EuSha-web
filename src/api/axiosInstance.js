@@ -85,3 +85,11 @@ API.interceptors.response.use(
 );
 
 export default API;
+
+export const bookmarkPost = (detailId) => {
+  return API.post("/bookmarks", { detailId });
+};
+
+export const bookmarkDelete = (bookmarkId) => {
+  return API.delete(`/bookmarks/${bookmarkId}`);
+};
