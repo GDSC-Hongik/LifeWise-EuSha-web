@@ -46,7 +46,7 @@ const Account = () => {
       const response = await API.patch(
         "https://life-wise.site/mypage/password",
         {
-          newpassword: newPassWord,
+          newPassword: newPassWord,
         }
       );
 
