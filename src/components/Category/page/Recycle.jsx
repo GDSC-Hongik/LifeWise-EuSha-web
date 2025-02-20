@@ -4,6 +4,7 @@ import { useState } from "react";
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
 import RecycleBody from "../block/RecycleBody";
+import Header from "../block/Header";
 
 const Container = styled.div`
   position: relative;
@@ -25,6 +26,7 @@ const Recycle = () => {
         `}
       </style>
       <HeaderMain />
+      <Header />
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}

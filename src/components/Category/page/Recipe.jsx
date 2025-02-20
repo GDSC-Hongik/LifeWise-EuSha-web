@@ -4,6 +4,7 @@ import { useState } from "react";
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
 import RecipeBody from "../block/RecipeBody";
+import Header from "../block/Header";
 
 const Container = styled.div`
   position: relative;
@@ -25,6 +26,7 @@ const Recipe = () => {
         `}
       </style>
       <HeaderMain />
+      <Header />
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}
