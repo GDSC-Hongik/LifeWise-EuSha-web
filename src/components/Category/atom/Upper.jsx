@@ -20,11 +20,11 @@ const UpperContainer = styled.div`
   }
 `;
 
-const Upper = ({ imageUrl, description }) => {
+const Upper = ({ id, imageUrl, description }) => {
   console.log("현제 데이터 description : ", description);
   return (
     <UpperContainer className="upper-container">
-      <BookmarkBox />
+      <BookmarkBox id={id} />
       <ImgBox imageUrl={imageUrl} />
       <TextOverlay description={description} />
     </UpperContainer>
