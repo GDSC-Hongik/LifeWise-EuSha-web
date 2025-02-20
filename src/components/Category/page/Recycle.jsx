@@ -3,8 +3,7 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
-import LaundryBody from "../block/laundryBody";
-// import Content from "../component/Content";
+import RecycleBody from "../block/RecycleBody";
 
 const Container = styled.div`
   position: relative;
@@ -14,7 +13,7 @@ const Container = styled.div`
   }
 `;
 
-const Laundry = () => {
+const Recycle = () => {
   const [activeButton, setActiveButton] = useState(1);
   return (
     <Container>
@@ -25,16 +24,15 @@ const Laundry = () => {
           }
         `}
       </style>
-      <HeaderMain></HeaderMain>
       <HeaderMain />
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}
-        index={6}
+        index={12}
       />
-      <LaundryBody activeButton={activeButton} />
+      <RecycleBody activeButton={activeButton} />
     </Container>
   );
 };
 
-export default Laundry;
+export default Recycle;

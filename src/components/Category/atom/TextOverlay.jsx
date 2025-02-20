@@ -25,12 +25,12 @@ const TextOverlayContainer = styled.div`
   }
 `;
 
-const TextOverlay = ({ signBody }) => {
+const TextOverlay = ({ description }) => {
   return (
     <TextOverlayContainer>
-      {signBody.map((signBody, index) => (
+      {description.map((description, index) => (
         <div key={index} style={{ textAlign: "left" }}>
-          {signBody}
+          {description}
         </div> // 각 요소의 텍스트 왼쪽 정렬
       ))}
     </TextOverlayContainer>
