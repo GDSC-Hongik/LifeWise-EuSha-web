@@ -1,0 +1,22 @@
+.loginpage {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.inputBox {
+  padding: 0px;
+}
+
+.inputBox:focus-within {
+  border: 1px solid black;
+}
+
+.firstLogin h5:hover {
+  color: #5a4328;
+  border-bottom: 1px none #8b5e3c;
+}
+
+.firstLogin {
+  margin-top: 10px;
+}

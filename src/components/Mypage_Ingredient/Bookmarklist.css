@@ -1,0 +1,23 @@
+.likes-devide {
+  margin-top: 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.likes-list {
+  margin-left: 40px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+}
+
+.like-item {
+  margin: 20px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  text-align: center;
+  align-items: center;
+}

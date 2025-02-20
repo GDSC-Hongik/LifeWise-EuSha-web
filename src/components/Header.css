@@ -1,0 +1,42 @@
+header {
+  background-color: #f8f8f8;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header .login {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  width: 70px;
+}
+
+header .login:hover {
+  color: blueviolet;
+  border: 2px solid blueviolet;
+}
+
+header nav button {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  border: none;
+  /*transparent*/
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}

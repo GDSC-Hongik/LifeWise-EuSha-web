@@ -1,0 +1,57 @@
+.mypage-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.mypage-logo {
+  padding: 5px 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mypage-body {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  /* height: calc(100vh - 90px); */
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar li:hover,
+.sidebar .first-list {
+  background-color: #e8f4ff;
+  font-weight: bold;
+}
+
+.sidebar li.selected {
+  background-color: #e8f4ff;
+  font-weight: bold;
+}
+/* 메인 컨텐츠 스타일 */
+.mypage-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f8f9fa;
+}
