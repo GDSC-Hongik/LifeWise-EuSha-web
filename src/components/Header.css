@@ -10,6 +10,7 @@ header {
 header .logo {
   font-size: 1.5em;
   font-weight: bold;
+  cursor: pointer;
 }
 
 header nav {

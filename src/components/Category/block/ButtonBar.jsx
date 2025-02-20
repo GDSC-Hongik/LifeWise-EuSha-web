@@ -7,26 +7,28 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  gap: 0px 50px;
+  gap: 0px 30px;
 `;
 
-const ButtonBar = ({ activeButton, setActiveButton }) => {
+const ButtonBar = ({ index, activeButton, setActiveButton }) => {
   const handleButtonClick = (id) => {
     setActiveButton((prev) => (prev === id ? null : id));
   };
   return (
     <ButtonContainer>
-      {ButtonData.map(({ id, imageOff, imageOn, text }) => (
-        <Button
-          key={id}
-          id={id}
-          imageOff={imageOff}
-          imageOn={imageOn}
-          text={text}
-          isActive={activeButton === id}
-          onClick={() => handleButtonClick(id)}
-        />
-      ))}
+      {ButtonData.filter(({ id }) => id >= index - 5 && id <= index).map(
+        ({ id, imageOff, imageOn, text }) => (
+          <Button
+            key={id}
+            id={id}
+            imageOff={imageOff}
+            imageOn={imageOn}
+            text={text}
+            isActive={activeButton === id}
+            onClick={() => handleButtonClick(id)}
+          />
+        )
+      )}
     </ButtonContainer>
   );
 };

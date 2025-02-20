@@ -20,12 +20,13 @@ const UpperContainer = styled.div`
   }
 `;
 
-const Upper = ({ img, signBody }) => {
+const Upper = ({ id, imageUrl, description }) => {
+  console.log("현제 데이터 description : ", description);
   return (
     <UpperContainer className="upper-container">
-      <BookmarkBox />
-      <ImgBox img={img} />
-      <TextOverlay messages={signBody} />
+      <BookmarkBox id={id} />
+      <ImgBox imageUrl={imageUrl} />
+      <TextOverlay description={description} />
     </UpperContainer>
   );
 };

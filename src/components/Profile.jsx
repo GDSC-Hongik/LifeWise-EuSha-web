@@ -19,38 +19,103 @@ const Profile = ({ onClose }) => {
 
   const handleLogout = async () => {
     try {
-      const accessToken = localStorage.getItem("accessToken");
       const refreshToken = localStorage.getItem("refreshToken");
 
       if (!refreshToken) {
         onClose();
         navigate("/");
+        localStorage.clear();
         return;
       }
 
-      await API.delete("http://43.201.193.230:8080/members/logout", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        data: { refreshToken },
-      });
+      // 로그아웃 요청 전에 refreshToken 유효성 검사
+      const response = await API.delete(
+        "https://life-wise.site/members/logout",
+        {
+          data: { refreshToken },
+        }
+      );
 
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.removeItem("memberName");
-      localStorage.removeItem("email");
+      console.log(response.data); // 응답 데이터 확인
 
-      console.log("logout 성공"); // 검증
-      navigate("/"); // 로그아웃하면
+      localStorage.clear();
+      setmemberName("");
+      console.log("로그아웃 성공");
+      alert("로그아웃 되었습니다.");
+
+      onClose();
+      window.location.reload(); // 페이지 새로고침
     } catch (error) {
       console.error("logout 실패", error);
-      alert("logout 실패"); // 검증
+      if (error.response) {
+        console.error("응답 오류", error.response);
+        if (error.response.status === 401) {
+          // 만약 401 오류라면 refreshToken이 만료된 상태일 수 있음
+          alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+          navigate("/Login"); // 로그인 페이지로 리디렉션
+        }
+      }
+      alert("로그아웃 실패");
     }
   };
+
+  const handleMypageClick = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/login");
+    }
+
+    try {
+      const response = await API.get("https://life-wise.site/mypage");
+
+      console.log("마이페이지 응답: ", response.data);
+      navigate("/mypage");
+    } catch (error) {
+      console.error("마이페이지 요청 실패", error);
+
+      if (error.response && error.response.status === 401) {
+        alert("세션이 만료되었습니다. 다시 로그인 해주세요.", error);
+        navigate("/Login");
+      } else {
+        alert("마이페이지 이동 실패");
+      }
+    }
+  };
+
+  const handleBookmarkClick = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/login");
+    }
+
+    try {
+      const response = await API.get("https://life-wise.site/bookmarks");
+
+      console.log("북마크 응답: ", response.data);
+      localStorage.setItem(
+        "bookmarks",
+        JSON.stringify(response.data.bookmarks)
+      );
+      navigate("/bookmark");
+    } catch (error) {
+      console.error("북마크 요청 실패", error);
+
+      if (error.response && error.response.status === 401) {
+        alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
+        navigate("/Login");
+      } else {
+        alert("마이페이지 이동 실패");
+      }
+    }
+  };
+
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="profilemodal">
+      <div className="profilemodal-content">
         <h2 className="username">
           👤{" "}
           {memberName ? (
@@ -61,15 +126,15 @@ const Profile = ({ onClose }) => {
             </Link>
           )}
         </h2>
-        <div className="modal-list">
-          <p className="mypage">
-            <Link to="/mypage">📄마이페이지</Link>
+        <div className="profilemodal-list">
+          <p className="mypage" onClick={handleMypageClick}>
+            📄마이페이지
           </p>
-          <p className="bookmark">
-            <Link to="/bookmark">🔖북마크</Link>
+          <p className="bookmark" onClick={handleBookmarkClick}>
+            🔖북마크
           </p>
         </div>
-        <div className="footer">
+        <div className="profilefooter">
           {memberName && (
             <p className="logout" onClick={handleLogout}>
               로그아웃
