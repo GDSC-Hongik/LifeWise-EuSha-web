@@ -1,18 +1,39 @@
-import Header from "../../Header";
+import styled from "styled-components";
+import { useState } from "react";
 
-const Recipe = () => {
+import ButtonBar from "../block/ButtonBar";
+import Header from "../block/Header";
+import RecipeBody from "../block/RecipeBody";
+// import Content from "../component/Content";
+
+const Container = styled.div`
+  position: relative;
+  width: 100%;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const Laundry = () => {
+  const [activeButton, setActiveButton] = useState(1);
   return (
-    <div>
-      <Header></Header>
-      <h1>레시피 가이드</h1>
-      <p>분리수거 방법과 관련된 유용한 정보를 확인하세요:</p>
-      <ul>
-        <li>종이: 깨끗한 종이는 재활용 가능합니다.</li>
-        <li>플라스틱: 깨끗이 세척 후 분리배출하세요.</li>
-        <li>유리: 이물질을 제거한 후 배출하세요.</li>
-      </ul>
-    </div>
+    <Container>
+      <style>
+        {`
+          body::-webkit-scrollbar {
+            display: none;
+          }
+        `}
+      </style>
+      <Header />
+      <ButtonBar
+        activeButton={activeButton}
+        setActiveButton={setActiveButton}
+        index={18}
+      />
+      <RecipeBody activeButton={activeButton} />
+    </Container>
   );
 };
 
-export default Recipe;
+export default Laundry;

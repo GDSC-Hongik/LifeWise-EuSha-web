@@ -10,13 +10,13 @@ const ButtonContainer = styled.div`
   gap: 0px 30px;
 `;
 
-const ButtonBar = ({ activeButton, setActiveButton }) => {
+const ButtonBar = ({ index, activeButton, setActiveButton }) => {
   const handleButtonClick = (id) => {
     setActiveButton((prev) => (prev === id ? null : id));
   };
   return (
     <ButtonContainer>
-      {ButtonData.filter(({ id }) => id >= 1 && id <= 6).map(
+      {ButtonData.filter(({ id }) => id >= index - 5 && id <= index).map(
         ({ id, imageOff, imageOn, text }) => (
           <Button
             key={id}

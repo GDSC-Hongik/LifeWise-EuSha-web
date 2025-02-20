@@ -6,7 +6,7 @@ import Header from "../block/Header";
 import RecycleBody from "../block/RecycleBody";
 // import Content from "../component/Content";
 
-const RecycleContainer = styled.div`
+const Container = styled.div`
   position: relative;
   width: 100%;
   ::-webkit-scrollbar {
@@ -17,7 +17,7 @@ const RecycleContainer = styled.div`
 const Laundry = () => {
   const [activeButton, setActiveButton] = useState(1);
   return (
-    <RecycleContainer>
+    <Container>
       <style>
         {`
           body::-webkit-scrollbar {
@@ -29,9 +29,10 @@ const Laundry = () => {
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}
+        index={12}
       />
       <RecycleBody activeButton={activeButton} />
-    </RecycleContainer>
+    </Container>
   );
 };
 

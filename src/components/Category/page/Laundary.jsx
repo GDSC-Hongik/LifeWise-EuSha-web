@@ -6,7 +6,7 @@ import Header from "../block/Header";
 import LaundryBody from "../block/laundryBody";
 // import Content from "../component/Content";
 
-const LaundryContainer = styled.div`
+const Container = styled.div`
   position: relative;
   width: 100%;
   ::-webkit-scrollbar {
@@ -17,7 +17,7 @@ const LaundryContainer = styled.div`
 const Laundry = () => {
   const [activeButton, setActiveButton] = useState(1);
   return (
-    <LaundryContainer>
+    <Container>
       <style>
         {`
           body::-webkit-scrollbar {
@@ -29,9 +29,10 @@ const Laundry = () => {
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}
+        index={6}
       />
       <LaundryBody activeButton={activeButton} />
-    </LaundryContainer>
+    </Container>
   );
 };
 
