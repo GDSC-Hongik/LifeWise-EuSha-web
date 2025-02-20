@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
-import LaundryBody from "../block/laundryBody";
+import LaundryBody from "../block/LaundryBody";
 import Header from "../block/Header";
 // import Content from "../component/Content";
 
