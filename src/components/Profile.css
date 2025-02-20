@@ -1,4 +1,4 @@
-.modal {
+.profilemodal {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,11 +13,11 @@
   z-index: 1000;
 }
 
-.modal-content {
+.profilemodal-content {
   margin-top: 10px;
   margin-right: 5px;
   width: 300px;
-  height: 370px;
+  height: 340px;
   background: white;
   padding: 5px 20px;
   border-radius: 8px;
@@ -26,68 +26,60 @@
   border: 1px solid #000000;
 }
 
-.modal-content h2 {
+.profilemodal-content h2 {
   padding: 0px 10px;
   text-align: left;
 }
 
-.modal-content .modal-list {
+.profilemodal-content .profilemodal-list {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
   border-radius: 10px;
   background-color: rgb(245, 243, 243);
+  align-items: left;
   text-align: left;
-  padding: 20px 20px 20px;
+  padding-left: 20px;
+  gap: 10px;
 }
 
-.modal-list .mypage:hover {
+.profilemodal-list .mypage:hover {
   border-bottom: 1px solid;
   cursor: pointer;
 }
 
-.modal-list .bookmark:hover {
+.profilemodal-list .bookmark:hover {
   border-bottom: 1px solid;
   cursor: pointer;
 }
 
-.modal-list .setting:hover {
+.profilemodal-list .setting:hover {
   border-bottom: 1px solid;
   cursor: pointer;
 }
 
-.modal-content .modal-list p {
-  padding-bottom: 5px;
+.profilemodal-content .modal-list p {
+  text-align: left;
 }
 
-.footer {
+.profilefooter {
   padding: 5px 16px;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
 }
 
-.footer .logout {
+.profilefooter .logout {
   display: block;
 }
 
-.footer .question {
-  display: block;
-}
-
-.footer .logout:hover {
-  border-bottom: solid 1px;
-  cursor: pointer;
-}
-
-.footer .question:hover {
-  border-bottom: solid 1px;
-  cursor: pointer;
-}
-
-.footer .logout:hover {
+.profilefooter .logout:hover {
   border-bottom: solid 1px;
   cursor: pointer;
 }
 
 .close-button {
+  margin-top: 15px;
   padding: 10px 20px;
   background-color: #f44336;
   color: white;

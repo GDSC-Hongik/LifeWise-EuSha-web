@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await API.post(
-        "http://localhost:8080/members/login", // AWS 서버 주소로 변경
+        "https://life-wise.site/members/login", // AWS 서버 주소로 변경
         { email, password }
       );
 
@@ -23,32 +23,45 @@ const Login = () => {
       console.log(response.data.refreshToken);
       console.log(response.data.memberId);
       console.log(response.data.memberName);
+      console.log(response.data.email);
 
       if (response.data.accessToken && response.data.refreshToken) {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
         localStorage.setItem("memberId", response.data.memberId);
         localStorage.setItem("memberName", response.data.memberName);
+        localStorage.setItem("email", response.data.email);
         navigate("/");
       }
     } catch (error) {
-      alert("로그인 실패");
-      console.error("로그인 실패", error);
+      if (error.response) {
+        if (error.response.status === 401) {
+          alert("비밀번호가 일치하지 않습니다.");
+        } else {
+          alert("로그인 실패: ");
+        }
+      } else if (error.request) {
+        alert("서버 응답 x");
+      } else {
+        alert(`로그인 요청 실패: ${error.message}`);
+      }
     }
   };
 
-  const sethandleEmail = (e) => {
+  const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const sethandlePW = (e) => {
+  const handlePW = (e) => {
     setPassword(e.target.value);
   };
 
   return (
     <div className="loginpage">
       <div className="left">
-        <div className="title">LifeWise</div>
+        <div className="title">
+          <Link to="/">LifeWise</Link>
+        </div>
         <form className="form" onSubmit={handlelogin}>
           <label>이메일</label>
           <div className="inputBox">
@@ -58,7 +71,7 @@ const Login = () => {
               type="text"
               placeholder="이메일을 입력해주세요"
               value={email}
-              onChange={sethandleEmail}
+              onChange={handleEmail}
             ></input>
           </div>
 
@@ -70,13 +83,12 @@ const Login = () => {
               type="password"
               placeholder="비밀번호를 입력해주세요"
               value={password}
-              onChange={sethandlePW}
+              onChange={handlePW}
             ></input>
           </div>
           <button type="submit" className="button">
             로그인
           </button>
-          {/* submit type으로 변경 */}
         </form>
         <div className="firstLogin">
           <h5>

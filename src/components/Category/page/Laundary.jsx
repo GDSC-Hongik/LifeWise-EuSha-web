@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
-import Header from "../block/Header";
+import HeaderMain from "../../Header";
 import LaundryBody from "../block/laundryBody";
 // import Content from "../component/Content";
 
@@ -25,7 +25,8 @@ const Laundry = () => {
           }
         `}
       </style>
-      <Header />
+      <HeaderMain></HeaderMain>
+      <HeaderMain />
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}

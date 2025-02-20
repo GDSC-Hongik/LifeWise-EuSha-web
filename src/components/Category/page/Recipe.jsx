@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
-import Header from "../block/Header";
+import HeaderMain from "../../Header";
 import RecipeBody from "../block/RecipeBody";
-// import Content from "../component/Content";
 
 const Container = styled.div`
   position: relative;
@@ -14,7 +13,7 @@ const Container = styled.div`
   }
 `;
 
-const Laundry = () => {
+const Recipe = () => {
   const [activeButton, setActiveButton] = useState(1);
   return (
     <Container>
@@ -25,7 +24,7 @@ const Laundry = () => {
           }
         `}
       </style>
-      <Header />
+      <HeaderMain />
       <ButtonBar
         activeButton={activeButton}
         setActiveButton={setActiveButton}
@@ -36,4 +35,4 @@ const Laundry = () => {
   );
 };
 
-export default Laundry;
+export default Recipe;

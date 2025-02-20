@@ -19,6 +19,7 @@
   font-weight: bold;
   color: #5a4328;
   margin-bottom: 30px;
+  cursor: default;
 }
 
 form {
@@ -56,6 +57,22 @@ label {
   outline: none;
 }
 
+.showbtn {
+  border: none;
+  background: none;
+}
+
+.showbtn:hover {
+  cursor: pointer;
+}
+
+.errormsg {
+  font-size: 12px;
+  margin-top: 0;
+  margin-left: 50px;
+  text-align: left;
+  color: red;
+}
 .button {
   background-color: #5a4328;
   color: white;

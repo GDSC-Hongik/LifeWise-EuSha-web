@@ -7,9 +7,13 @@ import "./Header.css";
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [memberName, setMemberName] = useState("");
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
+    const myname = localStorage.getItem("memberName");
+
+    setMemberName(myname);
     setIsLogin(!!accessToken); // accessToken이 존재하면 true, 없으면 false
   }, []);
 
@@ -22,16 +26,18 @@ const Header = () => {
 
         {/* 로그인 여부에 따라 변하나? */}
         <nav>
-          {/* {isLogin ? (
-            <button onClick={() => setShowModal(true)}>⏺️</button>
+          {isLogin ? (
+            <button onClick={() => setShowModal(true)}>
+              {memberName}님, 안녕하세요!
+            </button>
           ) : (
             <button className="login">
               <Link to="/Login">로그인</Link>
             </button>
-          )} */}
+          )}
 
           {/* ********************/}
-          <button className="login">
+          {/* <button className="login">
             <Link to="/Login">로그인</Link>
           </button>
 
@@ -41,7 +47,7 @@ const Header = () => {
             style={{ fontSize: 20 }}
           >
             🧝
-          </button>
+          </button> */}
           {/* ********************/}
 
           {showModal &&
