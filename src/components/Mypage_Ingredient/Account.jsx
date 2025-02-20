@@ -21,7 +21,7 @@ const Account = () => {
 
   const handleMemberName = async () => {
     try {
-      const response = await API.put("https://life-wise.site/mypage/name", {
+      const response = await API.patch("https://life-wise.site/mypage/name", {
         newName: newMemberName,
       });
 
@@ -43,9 +43,12 @@ const Account = () => {
 
   const handlePassword = async () => {
     try {
-      const response = await API.put("https://life-wise.site/mypage/password", {
-        newpassword: newPassWord,
-      });
+      const response = await API.patch(
+        "https://life-wise.site/mypage/password",
+        {
+          newpassword: newPassWord,
+        }
+      );
 
       if (response.status === 200) {
         alert(`${response.data.message}`);
