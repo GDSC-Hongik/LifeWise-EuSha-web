@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
-import RecycleBody from "../block/RecycleBody";
+import Body from "../block/Body";
 import Header from "../block/Header";
 
 const Container = styled.div`
@@ -32,7 +32,7 @@ const Recycle = () => {
         setActiveButton={setActiveButton}
         index={12}
       />
-      <RecycleBody activeButton={activeButton} />
+      <Body activeButton={activeButton} categoryId={1} />
     </Container>
   );
 };
