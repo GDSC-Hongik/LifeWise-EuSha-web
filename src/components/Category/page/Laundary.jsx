@@ -3,9 +3,8 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
-import LaundryBody from "../block/LaundryBody";
+import Body from "../block/Body";
 import Header from "../block/Header";
-// import Content from "../component/Content";
 
 const Container = styled.div`
   position: relative;
@@ -13,6 +12,12 @@ const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+  align-items: center;
+`;
+
+const BodyWrapper = styled.div`
+  width: 65%; // Body 컴포넌트의 너비에 맞게 설정
+  margin: 0 auto;
 `;
 
 const Laundry = () => {
@@ -33,7 +38,9 @@ const Laundry = () => {
         setActiveButton={setActiveButton}
         index={6}
       />
-      <LaundryBody activeButton={activeButton} />
+      <BodyWrapper>
+        <Body activeButton={activeButton} categoryId={2} />
+      </BodyWrapper>
     </Container>
   );
 };

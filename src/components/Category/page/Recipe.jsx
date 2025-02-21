@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import ButtonBar from "../block/ButtonBar";
 import HeaderMain from "../../Header";
-import RecipeBody from "../block/RecipeBody";
+import Body from "../block/Body";
 import Header from "../block/Header";
 
 const Container = styled.div`
@@ -32,7 +32,7 @@ const Recipe = () => {
         setActiveButton={setActiveButton}
         index={18}
       />
-      <RecipeBody activeButton={activeButton} />
+      <Body activeButton={activeButton} categoryId={3} />
     </Container>
   );
 };
