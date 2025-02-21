@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Content from "../component/Content";
-import useFetchSubCategories from "../hooks/useFetchSubCategories";
+import useFetchSubCategories from "../hooks/useFetchSubCategories"; // 서브 카테고리 가져오는 훅
+import useFetchSubCategoryDetails from "../hooks/useFetchSubCategoryDetails"; // 상세 정보 가져오는 훅
 
 const BodyContainer = styled.div`
   width: 50%;
@@ -14,10 +15,13 @@ const BodyContainer = styled.div`
 `;
 
 const Body = ({ activeButton, categoryId }) => {
-  const { selectedData } = useFetchSubCategories(categoryId, activeButton); // 수정된 훅 사용
-  console.log("현재 버튼 : ", activeButton);
-  console.log("현재 카테고리 : ", categoryId);
-  console.log("현재 데이터 : ", selectedData);
+  const subCategories = useFetchSubCategories(categoryId); // 서브 카테고리 목록 가져오기
+  const selectedData = useFetchSubCategoryDetails(
+    categoryId,
+    activeButton,
+    subCategories
+  ); // 선택된 서브 카테고리의 상세 정보 가져오기
+
   return (
     <BodyContainer>
       {selectedData.length > 0 ? (
