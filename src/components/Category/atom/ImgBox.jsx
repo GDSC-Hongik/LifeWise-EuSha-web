@@ -1,42 +1,47 @@
 import styled from "styled-components";
+import { useState } from "react";
+// ImgBox.jsx 수정
 
-// const ImageSize = styled.img`
-//   /* width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   z-index: 2;
-//   transition: filter 0.3s ease; */
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 180px; /* 부모 요소 크기 */
-//   height: 180px;
-// `;
 const ImageWrapper = styled.div`
+  position: absolute; // 추가
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* 부모 크기에 맞춤 */
+  width: 120px;
   max-width: 180px;
-  height: auto;
+  height: 120px;
   max-height: 180px;
-  overflow: hidden; /* 이미지가 넘칠 경우 잘림 */
 `;
 
 const StyledImage = styled.img`
+  display: block; // 추가
   width: 100%;
   height: auto;
   object-fit: cover;
+  margin: auto; // 추가
 `;
 
 const ImgBox = ({ imageUrl }) => {
-  console.log("ImgBox imageUrl : ", imageUrl);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <ImageWrapper>
-      <StyledImage src={imageUrl} alt="로딩되지 않은 이미지" />
+      {imageError ? (
+        <p>이미지를 로드할 수 없습니다.</p>
+      ) : (
+        <StyledImage
+          src={imageUrl}
+          alt="로딩되지 않은 이미지"
+          onError={handleImageError}
+        />
+      )}
     </ImageWrapper>
   );
 };
